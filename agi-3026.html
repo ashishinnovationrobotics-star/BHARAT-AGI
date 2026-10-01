@@ -1,0 +1,96 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
+
+export default function Home() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [listening, setListening] = useState(false);
+  const [transcript, setTranscript] = useState("READY • Tap to Speak");
+
+  useEffect(() => {
+    const c = canvasRef.current!;
+    const ctx = c.getContext("2d")!;
+    const resize = () => { c.width = innerWidth; c.height = innerHeight; };
+    resize(); window.addEventListener("resize", resize);
+    const pts = [...Array(80)].map(() => ({
+      x: Math.random()*c.width, y: Math.random()*c.height,
+      vx: (Math.random()-0.5)*0.5, vy: (Math.random()-0.5)*0.5
+    }));
+    let raf: number;
+    const loop = () => {
+      ctx.clearRect(0,0,c.width,c.height);
+      pts.forEach(p=>{
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0||p.x>c.width) p.vx*=-1;
+        if(p.y<0||p.y>c.height) p.vy*=-1;
+        ctx.fillStyle='rgba(251,146,60,0.6)';
+        ctx.beginPath(); ctx.arc(p.x,p.y,1.5,0,6.28); ctx.fill();
+        pts.forEach(q=>{
+          const d = Math.hypot(p.x-q.x, p.y-q.y);
+          if(d<150){ ctx.strokeStyle=`rgba(56,189,248,${1-d/150})`; ctx.lineWidth=0.3; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke(); }
+        })
+      });
+      raf = requestAnimationFrame(loop);
+    };
+    loop();
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  const startVoice = () => {
+    const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if(!SR){ setTranscript("Use Chrome for Voice"); return; }
+    const rec = new SR(); rec.lang='en-IN';
+    rec.onstart=()=>{ setListening(true); setTranscript("LISTENING... Speak now"); };
+    rec.onresult=(e:any)=>{
+      const t = e.results[0][0].transcript;
+      setTranscript("Heard: "+t);
+      const u = new SpeechSynthesisUtterance(`Bharat-AGI online. You said ${t}. I am India's First AGI with Quantum Core, Genetic Architecture and Ethical Shield. Chain of Development Network is active.`);
+      u.lang='en-IN'; speechSynthesis.speak(u);
+    };
+    rec.onend=()=>{ setListening(false); };
+    rec.start();
+  };
+
+  return (
+    <div className="min-h-screen bg-[#05070f] text-slate-200 relative overflow-hidden">
+      <canvas ref={canvasRef} className="fixed inset-0 -z-10 opacity-60" />
+
+      <nav className="flex justify-between items-center p-4 m-4 rounded-2xl bg-[#0e1220]/80 backdrop-blur border border-orange-500/15">
+        <div className="font-bold tracking-widest">BHARAT-AGI <span className="text-[10px] text-orange-300 block">INDIA'S FIRST AGI — 3026 MINDSET</span></div>
+        <div className="flex gap-3">
+          <a href="/login" className="px-4 py-2 rounded-full bg-slate-800">Login</a>
+          <button onClick={startVoice} className="px-5 py-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-black font-bold">🎙️ Voice Mode</button>
+        </div>
+      </nav>
+
+      <section className="px-6 md:px-20 py-10 text-center">
+        <div className="text-[11px] tracking-widest text-orange-300 border border-orange-900/50 inline-block px-4 py-1 rounded-full">3026 MINDSET — The Next Dawn</div>
+        <h1 className="text-6xl md:text-8xl font-black mt-4 bg-gradient-to-r from-blue-300 to-orange-400 bg-clip-text text-transparent">BHARAT-AGI</h1>
+        <p className="mono text-sm mt-3 text-slate-400">India's First Artificial General Intelligence — Safe. Sovereign. Superhuman.</p>
+
+        <div className="mt-10 flex justify-center">
+          <div className="w-64 h-64 rounded-full bg-gradient-to-br from-blue-500/20 to-orange-500/20 border border-white/10 flex items-center justify-center text-7xl animate-pulse">🧠</div>
+        </div>
+
+        <div className="mt-8 flex justify-center gap-4">
+          <button onClick={startVoice} className={`px-8 py-4 rounded-xl font-bold text-lg ${listening?'bg-red-500':'bg-orange-500'} text-black`}>{listening?'🔴 Listening...':'🎤 Explore AGI Playground'}</button>
+          <div className="px-6 py-4 rounded-xl bg-white/5 border border-white/10 mono text-xs">{transcript}</div>
+        </div>
+      </section>
+
+      <section className="px-6 md:px-20 grid md:grid-cols-3 gap-5 pb-20">
+        {[
+          ["🧠 LLM & Chain of Development","Self-evolving reasoning chain"],
+          ["🛡️ Ethical Shield & Hack Defense","Alignment firewall, protects DBs"],
+          ["🧬 Genetic Intelligence","Genome learning, bio-mimicry"],
+          ["⚛️ Quantum Core","1024 logical qubits, 1.8 ExaOPS"],
+          ["🗺️ Brain Mapping & Cytography","Connectome-scale mapping"],
+          ["☁️ Cloud & Hadoop Big Data","Petabyte chunking, Sovereign DB"]
+        ].map(([t,d])=>(
+          <div key={t} className="p-6 rounded-2xl bg-[#0e1220]/80 border border-white/10">
+            <div className="font-bold">{t}</div><div className="text-xs text-slate-400 mt-2">{d}</div>
+          </div>
+        ))}
+      </section>
+    </div>
+  );
+}
