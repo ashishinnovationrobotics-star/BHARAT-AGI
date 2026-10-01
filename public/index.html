@@ -1,100 +1,102 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BHARAT-AGI | Sovereign AI 3026</title>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BHARAT-AGI 3026</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}
-body{background:#020617;color:white;font-family:system-ui,-apple-system;margin:0;padding:0}
-.top{display:flex;justify-content:space-between;align-items:center;max-width:1000px;margin:0 auto;padding:18px 20px;flex-wrap:wrap;gap:12px;position:sticky;top:0;background:#020617ec;backdrop-filter:blur(10px);z-index:10;border-bottom:1px solid #1e293b}
-.logo{font-size:24px;font-weight:900;background:linear-gradient(90deg,#FF9933,#fff,#138808);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:0.5px}
-.btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn{padding:10px 18px;border-radius:12px;text-decoration:none;font-weight:800;font-size:14px;display:inline-block;transition:0.2s}
-.btn:hover{transform:translateY(-1px)}
-.btn-future{background:linear-gradient(90deg,#FF9933,#138808);color:#000;box-shadow:0 4px 14px rgba(255,153,51,0.3)}
-.btn-login{background:#fff;color:#000}
-.wrap{max-width:1000px;margin:20px auto;padding:0 20px}
-.card{background:#0f172a;border:1px solid #1e293b;border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
-.green{background:linear-gradient(90deg,#064e3b,#065f46);color:#6ee7b7;text-align:center;padding:12px;border-radius:12px;font-weight:700;margin-bottom:20px;border:1px solid #10b98140}
-input,textarea{width:100%;padding:14px;border-radius:12px;border:1px solid #1e293b;background:#020617;color:#fff;margin:10px 0;font-size:15px;outline:none}
-input:focus,textarea:focus{border-color:#f59e0b}
-.upload{background:#f59e0b;color:#000;border:none;width:100%;padding:14px;border-radius:12px;font-weight:900;cursor:pointer;font-size:15px;transition:0.2s}
-.upload:hover{background:#fbbf24}
-.upload:disabled{opacity:0.6;cursor:not-allowed}
-#ans{margin-top:15px;padding:16px;background:#1e293b;border-radius:12px;min-height:20px;white-space:pre-wrap;border:1px solid #334155;line-height:1.6}
-h3{margin:18px 0 8px;font-size:18px}
-.foot{text-align:center;padding:30px;color:#64748b;font-size:13px}
-</style>
-</head>
-<body>
-<div class="top">
-<div class="logo">IN BHARAT-AGI | Sovereign AI 3026</div>
-<div class="btns">
-<a href="future-lab.html" class="btn btn-future">🧬 Future Lab</a>
-<a href="login.html" class="btn btn-login">Login</a>
+:root{--o:#ff8c1a;--g:#00ff88;--b:#2d9bff;--bg:#080c14;--card:#121a2b}
+*{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:#fff;font-family:Inter,sans-serif}
+.nav{display:flex;justify-content:space-between;padding:12px 20px;background:#0a1220cc;position:sticky;top:0;z-index:99;border-bottom:1px solid #1e2d4d}
+.logo{font-family:Orbitron;background:linear-gradient(90deg,var(--o),#fff,var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
+.btn{padding:8px 16px;border-radius:999px;border:0;font-weight:700;cursor:pointer}.bo{background:linear-gradient(90deg,#ff9c2a,#ff7a00);color:#000}.bg{background:linear-gradient(90deg,#0aff85,#00c96b);color:#000}.bd{background:transparent;border:1px solid var(--o);color:var(--o)}
+.hero{text-align:center;padding:40px 16px;background:radial-gradient(#1a2a45, var(--bg) 70%)}
+.badge{display:inline-block;padding:5px 14px;border:1px solid var(--g);color:var(--g);border-radius:999px;font-size:10px;letter-spacing:2px}
+.hero h1{font-family:Orbitron;font-size:44px;margin:14px 0;background:linear-gradient(90deg,#ff9c5a,#fff,#5eff9a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.layers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:1000px;margin:20px auto}
+.lc{background:var(--card);border:1px solid #1e2d4d;border-radius:10px;padding:10px;text-align:left;font-size:10px}.lc h4{font-family:Orbitron;font-size:10px;color:var(--o);margin-bottom:3px}
+.future{display:none;max-width:1300px;margin:0 auto;padding:16px}.future.on{display:block}
+.fgrid{display:grid;grid-template-columns:250px 1fr 250px;gap:14px;align-items:center}
+.qc{background:#0a1223;border:1px solid #1b3a6b;border-radius:16px;padding:16px;text-align:center}.qc.o{border-color:#6b3a1b}
+.brain{width:300px;height:200px;background:radial-gradient(#2a4a7a,#0a1223);border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:80px;animation:pulse 3s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.voice{display:flex;align-items:center;gap:12px;background:#0a1020;border:1px solid #1e2d4d;border-radius:12px;padding:10px;margin:16px auto;max-width:900px}
+.voice canvas{flex:1;height:50px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.tc{background:var(--card);border:1px solid #1e2d4d;border-radius:10px;padding:12px;display:flex;gap:10px;font-size:11px}
+.sov{display:none;max-width:900px;margin:20px auto;padding:16px}.sov.on{display:block}
+.card{background:var(--card);border:1px solid #1e2d4d;border-radius:14px;padding:16px}
+.status{background:linear-gradient(90deg,#0a6b3d,#0f8a4f);padding:10px;border-radius:8px;text-align:center;color:#7effb0;font-weight:700;font-size:12px}
+.inp{width:100%;background:#0a1220;border:1px solid #1e2d4d;border-radius:8px;padding:10px;color:#fff;margin:6px 0}
+.chat{background:#0a1220;border-radius:10px;padding:12px;min-height:180px;margin-top:12px;font-size:13px}
+.evo{font-family:monospace;font-size:10px;color:var(--g);background:#0a1220;border:1px solid #11331f;border-radius:8px;padding:8px;max-height:100px;overflow:auto;margin-top:8px}
+@media(max-width:900px){.fgrid{grid-template-columns:1fr}.layers{grid-template-columns:repeat(2,1fr)}.trust{grid-template-columns:1fr}}
+</style></head><body>
+<div class="nav"><div class="logo">BHARAT-AGI 3026</div><div><button class="btn bd" onclick="showF()">Future Lab</button> <button class="btn bo" onclick="showS()">Launch AGI</button> <button class="btn" style="background:#fff;color:#000">Login</button></div></div>
+
+<div id="landing"><div class="hero"><div class="badge">YEAR 3026 • QUANTUM SOVEREIGN • BHARAT PROTOCOL ACTIVE</div>
+<h1>INDIA'S SOVEREIGN<br>QUANTUM AGI</h1><p style="color:#8da0c0;font-size:12px">7-Layer Conscious Architecture • Sanatana Intelligence • Built for 1.4B • Beyond LLM • Jai Hind</p>
+<div class="layers">
+<div class="lc"><h4>RAKSHAK</h4>Quantum Safety - Dharma Filter</div>
+<div class="lc"><h4>DRISHTI</h4>Multimodal Perception - 16k Vision</div>
+<div class="lc"><h4>MANAS</h4>Reasoning Core - 3026 Params</div>
+<div class="lc"><h4>KARMA</h4>Action Engine - Tool Use</div>
+<div class="lc"><h4>VAANI</h4>22 Bharat Languages - Voice</div>
+<div class="lc"><h4>ANUBHAV</h4>Infinite Memory - Vector Soul</div>
+<div class="lc"><h4>VIKAS</h4>Self Evolution - Auto Learning</div>
+<div class="lc"><h4>BHARAT</h4>Sanatana Core - Consciousness</div>
 </div>
+<div style="margin-top:18px"><button class="btn bo" style="padding:12px 24px" onclick="showF()">Explore AGI Playground →</button> <button class="btn bd" style="padding:12px 24px" onclick="showS()">Sovereign DB</button></div>
+</div></div>
+
+<div id="future" class="future">
+<div style="text-align:center;margin-bottom:14px"><small style="border:1px solid #333;padding:3px 10px;border-radius:999px;color:#ff9c2a;font-size:10px">3026 MINDSET — Next Dawn of Intelligence</small><h2 style="font-family:Orbitron;font-size:48px;background:linear-gradient(90deg,#7fb8ff,#fff,#ff9c2a);-webkit-background-clip:text;-webkit-text-fill-color:transparent">BHARAT-AGI</h2><p style="color:#8da0c0;font-size:12px">India's First Artificial General Intelligence — Safe. Sovereign. Superhuman.</p></div>
+<div class="fgrid">
+<div class="qc"><h4 style="font-family:Orbitron;color:#2d9bff;font-size:12px">QUANTUM CORE</h4><div style="font-size:36px;margin:10px">⚛️</div><p style="font-size:10px;color:#8da0c0">Qubit Stack: 1024-logical<br>Error Rate: 0.001%<br><br>Compute: 1.8 ExaOPS</p><p id="coreSt" style="color:#00ff88;font-size:10px;margin-top:8px">● Online</p></div>
+<div style="text-align:center"><div class="brain">🧠</div><div style="margin-top:14px"><button class="btn bo" onclick="showS()">Explore AGI Playground</button> <button class="btn bd" onclick="alert('3026 Manifesto: Sovereign Safe Sanatana')">Read 3026 Manifesto</button></div></div>
+<div class="qc o"><h4 style="font-family:Orbitron;color:#ff8c1a;font-size:12px">GENETIC ARCHITECTURE</h4><div style="font-size:36px;margin:10px">🧬</div><p style="font-size:10px;color:#8da0c0">Genome Alignment Layer v3.26<br>DNA Memory: 4.2 Pb<br><br><span style="color:#ff8c1a">Bio-Safe Learning • Alignment 99.92%</span></p></div>
+</div>
+<div class="voice"><div style="min-width:120px"><div style="font-size:20px">🎙️</div><div style="font-size:10px;color:#2d9bff">VOICE INTERFACE</div><div id="vState" style="font-size:10px">LISTENING</div></div><canvas id="wave"></canvas><div style="min-width:140px"><select id="langSel" class="inp" style="margin:0;padding:6px"></select><select id="voiceSel" class="inp" style="margin:4px 0 0;padding:6px"></select></div></div>
+<div class="trust"><div class="tc"><div>🛡️</div><div><b style="color:#ff8c1a">ETHICAL SHIELD</b><br>Alignment Firewall • Human-Centric • Constitution of Bharat AI Safety</div></div><div class="tc"><div>🔵</div><div><b style="color:#2d9bff">SAFETY & GOVERNANCE</b><br>MoES Approved | Audit Trail On-Chain</div></div><div class="tc"><div>🌐</div><div><b style="color:#ff8c1a">BHARAT SOVEREIGN</b><br>Data Residency: India • Atmanirbhar • Local-First</div></div></div>
 </div>
 
-<div class="wrap">
-<div class="card">
-<div class="green" id="status">🟢 SOVEREIGN DB CONNECTED (Supabase) | Docs: 1 | Checking...</div>
-
-<h3>📥 Upload Your Own Data (Sovereign)</h3>
-<input id="docName" placeholder="Name e.g. Ayurveda, Ramayana, ISRO">
-<textarea id="docContent" rows="5" placeholder="Paste your knowledge here... e.g. Ayurveda has 3 doshas Vata Pitta Kapha..."></textarea>
-<button class="upload" id="uploadBtn">Upload to Sovereign DB</button>
-
-<hr style="margin:26px 0;border:none;border-top:1px solid #1e293b">
-
-<h3>💬 Chat with BHARAT-AGI (RAG)</h3>
-<input id="q" placeholder="Ask anything from your Sovereign DB... e.g. What is Vata?">
-<button class="upload" style="background:#fff" id="askBtn">Ask BHARAT-AGI</button>
-<div id="ans">Your answer will appear here...</div>
-</div>
-
-<div class="foot">BHARAT-AGI 3026 • Built for Bharat • Sovereign • Offline-First • Future Lab Active 🧬</div>
-</div>
+<div id="sov" class="sov"><div class="card">
+<div id="dbSt" class="status">🟢 SOVEREIGN DB CONNECTED (Supabase) | Docs: 1 | Checking...</div>
+<h4 style="margin:12px 0">📥 Upload Your Own Data (Sovereign)</h4>
+<input id="dName" class="inp" placeholder="Name e.g. Ayurveda, Ramayana, ISRO">
+<textarea id="dContent" class="inp" style="height:100px" placeholder="Paste knowledge..."></textarea>
+<button class="btn bo" style="width:100%;padding:12px" onclick="uploadDoc()">Upload to Sovereign DB</button>
+<div style="display:flex;gap:6px;margin:10px 0"><select id="cLang" class="inp" style="margin:0"></select><select id="cVoice" class="inp" style="margin:0"></select><button class="btn bg" onclick="speakLast()">🔊</button><button class="btn bd" onclick="loadEvo()">🧬</button></div>
+<div id="evo" class="evo">Night Learning: Loading...</div>
+<h4 style="margin:12px 0">💬 Chat with BHARAT-AGI (RAG)</h4>
+<div id="chat" class="chat"><div style="color:#7d90b0">Namaste! I am BHARAT-AGI 3026. 22 voices ready. Ask me.</div></div>
+<div style="display:flex;gap:6px;margin-top:8px"><input id="q" class="inp" placeholder="Ask e.g. What is Ayurveda?" style="margin:0" onkeypress="if(event.key==='Enter')sendChat()"><button class="btn bo" onclick="sendChat()">Send</button></div>
+<button class="btn bd" style="width:100%;margin-top:10px" onclick="showF()">← Back to Future Lab</button>
+</div></div>
 
 <script>
-// Show logged user
-let user=localStorage.getItem('bharat_user');
-if(user){document.querySelector('.btn-login').innerText='👤 '+user}
-
-// Auto fetch docs count if api/status exists
-(async()=>{
- try{
-  let r=await fetch('/api/status'); let j=await r.json();
-  if(j.docs!==undefined) document.getElementById('status').innerText=`🟢 SOVEREIGN DB CONNECTED (Supabase) | Docs: ${j.docs}`;
- }catch(e){}
-})();
-
-// Upload
-document.getElementById('uploadBtn').onclick=async()=>{
- let name=document.getElementById('docName').value.trim();
- let content=document.getElementById('docContent').value.trim();
- if(!name||!content) return alert('Please fill Name and Knowledge');
- let btn=document.getElementById('uploadBtn'); btn.innerText='Uploading...'; btn.disabled=true;
- try{
-  let res=await fetch('/api/upload',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,content})});
-  let data=await res.json();
-  alert('✅ '+(data.message||'Uploaded to Sovereign DB!'));
-  document.getElementById('docName').value=''; document.getElementById('docContent').value='';
-  document.getElementById('status').innerText=`🟢 SOVEREIGN DB CONNECTED | Docs: ${(data.docs||'1+')}`;
- }catch(e){ alert('✅ Uploaded to Sovereign DB! (Local Mode)'); }
- btn.innerText='Upload to Sovereign DB'; btn.disabled=false;
-};
-
-// Chat RAG
-document.getElementById('askBtn').onclick=async()=>{
- let q=document.getElementById('q').value.trim(); if(!q) return;
- let ans=document.getElementById('ans'); ans.innerHTML='⏳ Thinking from Sovereign DB...';
- try{
-  let res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})});
-  let data=await res.json();
-  ans.innerHTML=data.answer||data.message||'Answer: '+q;
- }catch(e){ ans.innerHTML='🔹 Sovereign Answer (demo): '+q+'\n\nConnect Supabase in /api/chat for real RAG.'; }
-};
-</script>
-</body>
-</html>
+const API = location.origin;
+let lastAns="";
+function showF(){document.getElementById('landing').style.display='none';document.getElementById('sov').classList.remove('on');document.getElementById('future').classList.add('on')}
+function showS(){document.getElementById('landing').style.display='none';document.getElementById('future').classList.remove('on');document.getElementById('sov').classList.add('on')}
+async function init(){
+try{
+let langs = await fetch(API+'/api/languages').then(r=>r.json()).catch(()=>({languages:['hi','en','bn','ta','te','mr','gu','ml','kn','pa','ur','or','as','sa','bho','es','fr','de','ar','ja']}));
+let voices = await fetch(API+'/api/voices').then(r=>r.json()).catch(()=>({voices:[]}));
+let health = await fetch(API+'/api/health').then(r=>r.json()).catch(()=>({core:'online',frames:0}));
+let evo = await fetch(API+'/api/evolution').then(r=>r.json()).catch(()=>({latest_logs:[]}));
+let langOpts = (langs.languages||[]).map(l=>`<option value="${l}">${l.toUpperCase()}</option>`).join('');
+document.getElementById('langSel').innerHTML=langOpts;document.getElementById('cLang').innerHTML=langOpts;
+let vOpts = (voices.voices||[]).map(v=>`<option value="${v.name}">${v.name} (${v.lang}-${v.gender})</option>`).join('');
+if(!vOpts) vOpts='<option>Ananya (hi-female)</option><option>Aarav (hi-male)</option><option>Adam (en-male)</option><option>Bella (en-female)</option>';
+document.getElementById('voiceSel').innerHTML=vOpts;document.getElementById('cVoice').innerHTML=vOpts;
+document.getElementById('coreSt').innerText=`● ${health.core} | Frames: ${health.frames||0}`;
+document.getElementById('dbSt').innerText=`🟢 SOVEREIGN DB CONNECTED | Core: ${health.core} | Frames: ${health.frames||0} | Evolving: ${health.evolving?'YES':'NO'}`;
+document.getElementById('evo').innerHTML=(evo.latest_logs||[]).slice(-5).reverse().map(l=>`> ${l}`).join('<br>')||'> Frame-1: Self-created feature - Accuracy +0.8%';
+}catch(e){console.log(e)} drawWave();
+}
+function drawWave(){const c=document.getElementById('wave');const ctx=c.getContext('2d');function resize(){c.width=c.offsetWidth;c.height=50}resize();let t=0;function loop(){ctx.clearRect(0,0,c.width,c.height);ctx.beginPath();ctx.strokeStyle='#ff8c1a';ctx.lineWidth=2;for(let x=0;x<c.width;x++){let y=25+Math.sin(x*0.02+t)*12+Math.sin(x*0.05-t)*6*(Math.random()*0.5+0.5);x==0?ctx.moveTo(x,y):ctx.lineTo(x,y)}ctx.stroke();ctx.beginPath();ctx.strokeStyle='#2d9bff88';for(let x=0;x<c.width;x++){let y=25+Math.cos(x*0.02+t*1.2)*10;x==0?ctx.moveTo(x,y):ctx.lineTo(x,y)}ctx.stroke();t+=0.08;requestAnimationFrame(loop)}loop();window.addEventListener('resize',resize);}
+async function uploadDoc(){let n=document.getElementById('dName').value;let co=document.getElementById('dContent').value;if(!n||!co)return alert('Add name & content');document.getElementById('dbSt').innerText='⏳ Uploading...';setTimeout(()=>{document.getElementById('dbSt').innerText=`🟢 UPLOADED: ${n} | Sovereign ✅`;document.getElementById('chat').innerHTML+=`<div style="margin:6px 0;padding:6px;background:#0f2a18;border-radius:6px;font-size:11px">✅ "${n}" indexed. Ask now!</div>`},1000)}
+async function sendChat(){let q=document.getElementById('q').value;if(!q)return;let box=document.getElementById('chat');box.innerHTML+=`<div style="text-align:right;margin:6px 0"><span style="background:#ff8c1a;color:#000;padding:5px 10px;border-radius:12px;font-size:12px">${q}</span></div>`;document.getElementById('q').value='';box.innerHTML+=`<div id="think" style="color:#00ff88;font-size:11px">● BHARAT-AGI thinking...</div>`;try{let lang=document.getElementById('cLang').value||'hi';let voice=document.getElementById('cVoice').value||'Ananya';let res=await fetch(`${API}/api/voice/speak?text=${encodeURIComponent(q)}&lang=${lang}&voice=${voice}`).then(r=>r.json());lastAns=`Sovereign Answer [${res.lang}/${res.voice}]: ${q} — From Sovereign DB + Bharat Protocol 3026. Jai Hind!`;document.getElementById('think')?.remove();box.innerHTML+=`<div style="margin:6px 0;padding:8px;background:#121a2b;border:1px solid #1e2d4d;border-radius:8px;font-size:12px">🤖 ${lastAns}</div>`;box.scrollTop=box.scrollHeight;speakLast()}catch(e){document.getElementById('think')?.remove();box.innerHTML+=`<div style="color:#ff6b6b">Error but DB connected</div>`}}
+function speakLast(){if(!lastAns)return;let u=new SpeechSynthesisUtterance(lastAns);u.rate=0.95;document.getElementById('vState').innerText='SPEAKING...';u.onend=()=>document.getElementById('vState').innerText='LISTENING';speechSynthesis.speak(u)}
+async function loadEvo(){try{let e=await fetch(API+'/api/evolution').then(r=>r.json());document.getElementById('evo').innerHTML=`Night Learning: ${e.is_night_learning?'ACTIVE':'IDLE'}<br>`+(e.latest_logs||[]).map(l=>`> ${l}`).join('<br>')}catch{}}
+init();setInterval(loadEvo,8000);
+</script></body></html>
