@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from mangum import Mangum
 import threading, time, random
 from datetime import datetime
 
@@ -24,7 +25,7 @@ VOICES = [
     {"id":"dev_m","name":"Dev","gender":"male","lang":"sa"}, {"id":"ramesh_m","name":"Ramesh","gender":"male","lang":"bho"}
 ]
 
-# --- ML SELF-EVOLUTION THREAD (Night Mode) ---
+# --- ML SELF-EVOLUTION THREAD (Night Mode - Serverless Safe) ---
 evolution_log = []
 is_evolving = False
 
@@ -32,14 +33,17 @@ def night_evolution_loop():
     global evolution_log, is_evolving
     while True:
         is_evolving = True
-        time.sleep(10) # every 10 sec it learns in demo, in prod 3600 sec (1 hour)
+        time.sleep(10)
         frame = f"Frame-{len(evolution_log)+1}: Self-created feature at {datetime.now().strftime('%H:%M:%S')} - Accuracy +{random.uniform(0.1,1.2):.2f}%"
         evolution_log.append(frame)
         if len(evolution_log) > 100: evolution_log.pop(0)
         is_evolving = False
         time.sleep(20)
 
-threading.Thread(target=night_evolution_loop, daemon=True).start()
+# Start thread only once
+if not any(t.name == "BharatEvo" for t in threading.enumerate()):
+    t = threading.Thread(target=night_evolution_loop, daemon=True, name="BharatEvo")
+    t.start()
 
 # --- API ENDPOINTS ---
 
@@ -49,7 +53,7 @@ def root():
 
 @app.get("/api/health")
 def health():
-    return {"core": "online", "bharat": "ready", "evolving": is_evolving, "frames": len(evolution_log)}
+    return {"core": "online", "bharat": "ready", "evolving": is_evolving, "frames": len(evolution_log), "timestamp": datetime.now().isoformat()}
 
 @app.get("/api/voices")
 def get_voices():
@@ -65,5 +69,7 @@ def evolution_status():
 
 @app.get("/api/voice/speak")
 def speak(text: str = "Namaste, Bharat AGI ready", lang: str = "hi", voice: str = "Ananya"):
-    # Frontend will use Web Speech API + this metadata for animation
-    return {"text": text, "lang": lang, "voice": voice, "animation": "waveform", "visualization": "enabled"}
+    return {"text": text, "lang": lang, "voice": voice, "animation": "waveform", "visualization": "enabled", "ready": True}
+
+# --- VERCEL REQUIRED HANDLER ---
+handler = Mangum(app, lifespan="off")
