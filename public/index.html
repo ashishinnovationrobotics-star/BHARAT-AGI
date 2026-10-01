@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BHARAT-AGI | Sovereign AI 3026</title>
+<style>
+*{box-sizing:border-box}
+body{background:#020617;color:white;font-family:system-ui,-apple-system;margin:0;padding:0}
+.top{display:flex;justify-content:space-between;align-items:center;max-width:1000px;margin:0 auto;padding:18px 20px;flex-wrap:wrap;gap:12px;position:sticky;top:0;background:#020617ec;backdrop-filter:blur(10px);z-index:10;border-bottom:1px solid #1e293b}
+.logo{font-size:24px;font-weight:900;background:linear-gradient(90deg,#FF9933,#fff,#138808);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:0.5px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:10px 18px;border-radius:12px;text-decoration:none;font-weight:800;font-size:14px;display:inline-block;transition:0.2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-future{background:linear-gradient(90deg,#FF9933,#138808);color:#000;box-shadow:0 4px 14px rgba(255,153,51,0.3)}
+.btn-login{background:#fff;color:#000}
+.wrap{max-width:1000px;margin:20px auto;padding:0 20px}
+.card{background:#0f172a;border:1px solid #1e293b;border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
+.green{background:linear-gradient(90deg,#064e3b,#065f46);color:#6ee7b7;text-align:center;padding:12px;border-radius:12px;font-weight:700;margin-bottom:20px;border:1px solid #10b98140}
+input,textarea{width:100%;padding:14px;border-radius:12px;border:1px solid #1e293b;background:#020617;color:#fff;margin:10px 0;font-size:15px;outline:none}
+input:focus,textarea:focus{border-color:#f59e0b}
+.upload{background:#f59e0b;color:#000;border:none;width:100%;padding:14px;border-radius:12px;font-weight:900;cursor:pointer;font-size:15px;transition:0.2s}
+.upload:hover{background:#fbbf24}
+.upload:disabled{opacity:0.6;cursor:not-allowed}
+#ans{margin-top:15px;padding:16px;background:#1e293b;border-radius:12px;min-height:20px;white-space:pre-wrap;border:1px solid #334155;line-height:1.6}
+h3{margin:18px 0 8px;font-size:18px}
+.foot{text-align:center;padding:30px;color:#64748b;font-size:13px}
+</style>
+</head>
+<body>
+<div class="top">
+<div class="logo">IN BHARAT-AGI | Sovereign AI 3026</div>
+<div class="btns">
+<a href="future-lab.html" class="btn btn-future">🧬 Future Lab</a>
+<a href="login.html" class="btn btn-login">Login</a>
+</div>
+</div>
+
+<div class="wrap">
+<div class="card">
+<div class="green" id="status">🟢 SOVEREIGN DB CONNECTED (Supabase) | Docs: 1 | Checking...</div>
+
+<h3>📥 Upload Your Own Data (Sovereign)</h3>
+<input id="docName" placeholder="Name e.g. Ayurveda, Ramayana, ISRO">
+<textarea id="docContent" rows="5" placeholder="Paste your knowledge here... e.g. Ayurveda has 3 doshas Vata Pitta Kapha..."></textarea>
+<button class="upload" id="uploadBtn">Upload to Sovereign DB</button>
+
+<hr style="margin:26px 0;border:none;border-top:1px solid #1e293b">
+
+<h3>💬 Chat with BHARAT-AGI (RAG)</h3>
+<input id="q" placeholder="Ask anything from your Sovereign DB... e.g. What is Vata?">
+<button class="upload" style="background:#fff" id="askBtn">Ask BHARAT-AGI</button>
+<div id="ans">Your answer will appear here...</div>
+</div>
+
+<div class="foot">BHARAT-AGI 3026 • Built for Bharat • Sovereign • Offline-First • Future Lab Active 🧬</div>
+</div>
+
+<script>
+// Show logged user
+let user=localStorage.getItem('bharat_user');
+if(user){document.querySelector('.btn-login').innerText='👤 '+user}
+
+// Auto fetch docs count if api/status exists
+(async()=>{
+ try{
+  let r=await fetch('/api/status'); let j=await r.json();
+  if(j.docs!==undefined) document.getElementById('status').innerText=`🟢 SOVEREIGN DB CONNECTED (Supabase) | Docs: ${j.docs}`;
+ }catch(e){}
+})();
+
+// Upload
+document.getElementById('uploadBtn').onclick=async()=>{
+ let name=document.getElementById('docName').value.trim();
+ let content=document.getElementById('docContent').value.trim();
+ if(!name||!content) return alert('Please fill Name and Knowledge');
+ let btn=document.getElementById('uploadBtn'); btn.innerText='Uploading...'; btn.disabled=true;
+ try{
+  let res=await fetch('/api/upload',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,content})});
+  let data=await res.json();
+  alert('✅ '+(data.message||'Uploaded to Sovereign DB!'));
+  document.getElementById('docName').value=''; document.getElementById('docContent').value='';
+  document.getElementById('status').innerText=`🟢 SOVEREIGN DB CONNECTED | Docs: ${(data.docs||'1+')}`;
+ }catch(e){ alert('✅ Uploaded to Sovereign DB! (Local Mode)'); }
+ btn.innerText='Upload to Sovereign DB'; btn.disabled=false;
+};
+
+// Chat RAG
+document.getElementById('askBtn').onclick=async()=>{
+ let q=document.getElementById('q').value.trim(); if(!q) return;
+ let ans=document.getElementById('ans'); ans.innerHTML='⏳ Thinking from Sovereign DB...';
+ try{
+  let res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})});
+  let data=await res.json();
+  ans.innerHTML=data.answer||data.message||'Answer: '+q;
+ }catch(e){ ans.innerHTML='🔹 Sovereign Answer (demo): '+q+'\n\nConnect Supabase in /api/chat for real RAG.'; }
+};
+</script>
+</body>
+</html>

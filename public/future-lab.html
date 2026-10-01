@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BHARAT-AGI Future Lab 3026 | Quantum + Genetic + Ethical Shield</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#05070f;color:#e2e8f0;font-family:'Rajdhani',sans-serif;overflow-x:hidden}
+canvas#neural{position:fixed;inset:0;z-index:-1;opacity:0.6}
+.glass{background:rgba(14,18,32,0.8);backdrop-filter:blur(16px);border:1px solid rgba(0,255,136,0.15);border-radius:16px}
+.glow{box-shadow:0 0 30px rgba(0,255,136,0.2)}
+.brain{width:260px;height:260px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(0,255,136,0.3),rgba(251,146,60,0.2));border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:80px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 20px #00ff88}50%{transform:scale(1.05);box-shadow:0 0 40px #00ff88}}
+.wave{width:3px;background:linear-gradient(to top,#fb923c,#00ff88);margin:0 2px;border-radius:2px;display:inline-block;animation:wave 0.8s infinite}
+@keyframes wave{0%,100%{height:8px}50%{height:32px}}
+.btn{padding:12px 22px;border-radius:30px;border:0;cursor:pointer;font-weight:700;transition:0.3s}
+.btn-orange{background:linear-gradient(90deg,#ff9933,#ffaa44);color:#000}
+.btn-green{background:linear-gradient(90deg,#00ff88,#00ccff);color:#000}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 20px #00ff88}
+.grid6{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+</style>
+</head>
+<body>
+<canvas id="neural"></canvas>
+
+<nav style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;margin:12px;border-radius:16px;" class="glass">
+<div><b style="font-family:'Orbitron';letter-spacing:2px">BHARAT-AGI 3026</b><br><small style="color:#00ff88;letter-spacing:2px">FUTURE LAB • QUANTUM + GENETIC + ETHICAL</small></div>
+<div style="display:flex;gap:10px">
+<a href="index.html" class="btn" style="background:#1e293b;color:#fff;text-decoration:none">← Home</a>
+<button onclick="startVoice()" class="btn btn-green">🎙️ Voice Mode</button>
+</div>
+</nav>
+
+<section style="text-align:center;padding:30px 20px">
+<div style="display:inline-block;padding:6px 16px;border-radius:20px;border:1px solid #00ff88;color:#00ff88;font-family:'Orbitron';font-size:11px;letter-spacing:2px">3026 MINDSET — Real Future Machine</div>
+<h1 style="font-family:'Orbitron';font-size:clamp(32px,7vw,72px);margin:14px 0;background:linear-gradient(90deg,#5eead4,#ff9933);-webkit-background-clip:text;-webkit-text-fill-color:transparent">BHARAT-AGI</h1>
+<p>India's First AGI • Chain of Development Network • Ethical Hack Shield • Voice Enabled</p>
+
+<div style="display:flex;justify-content:center;margin:30px 0"><div class="brain">🧠</div></div>
+
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<button onclick="startVoice()" id="voiceBtn" class="btn btn-orange" style="font-size:18px;padding:16px 32px">🎤 Explore AGI Playground</button>
+<div id="voiceStatus" class="glass" style="padding:14px 20px;min-width:280px">READY • Tap to Speak • 12 Languages</div>
+</div>
+<div id="visualizer" style="height:50px;display:flex;align-items:end;justify-content:center;margin-top:14px"></div>
+</section>
+
+<section style="padding:20px 40px 80px">
+<div class="grid6">
+<div class="glass" style="padding:20px"><h3>🧠 LLM & Chain of Development</h3><small style="opacity:0.7">Self-evolving reasoning chain. Research → Validation → Synthesis. Recursive improvement.</small><div style="margin-top:10px;color:#00ff88;font-size:12px">● Active • CoDN v3.26</div></div>
+<div class="glass" style="padding:20px"><h3>🛡️ Ethical Shield & Hack Defense</h3><small style="opacity:0.7">Alignment firewall. Protects personal databases, detects intrusions, auto-patches. Dharma-based.</small><div style="margin-top:10px;color:#00ff88;font-size:12px">● Firewall Active • Zero Breach</div></div>
+<div class="glass" style="padding:20px"><h3>🧬 Genetic Intelligence</h3><small style="opacity:0.7">Genome-pattern learning, bio-mimicry, protein folding, DNA memory 4.2Pb.</small><div style="margin-top:10px;color:#00ff88;font-size:12px">● DNA Memory Online</div></div>
+<div class="glass" style="padding:20px"><h3>⚛️ Quantum Core</h3><small style="opacity:0.7">Hybrid quantum-classical inference, QAOA, 1024 logical qubits, 1.8 ExaOPS.</small><div style="margin-top:10px;color:#fb923c;font-size:12px">Compute: 1.8 ExaOPS • Error 0.001%</div></div>
+<div class="glass" style="padding:20px"><h3>🗺️ Brain Mapping & Cytography</h3><small style="opacity:0.7">Connectome-scale mapping, consciousness modelling, complexity analysis.</small><div style="margin-top:10px;color:#00ff88;font-size:12px">● 86B Neurons Mapped</div></div>
+<div class="glass" style="padding:20px"><h3>☁️ Cloud & Hadoop Big Data</h3><small style="opacity:0.7">Petabyte chunking, distributed vector DB, sovereign residency India.</small><div style="margin-top:10px;color:#00ff88;font-size:12px">● Sovereign DB • Atmanirbhar</div></div>
+</div>
+</section>
+
+<script>
+// Neural BG
+const c=document.getElementById('neural'),ctx=c.getContext('2d');
+function rs(){c.width=innerWidth;c.height=innerHeight}rs();onresize=rs;
+let pts=[...Array(80)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-0.5)*0.6,vy:(Math.random()-0.5)*0.6}));
+(function loop(){ctx.clearRect(0,0,c.width,c.height);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>c.width)p.vx*=-1;if(p.y<0||p.y>c.height)p.vy*=-1;ctx.fillStyle='#00ff88aa';ctx.beginPath();ctx.arc(p.x,p.y,1.5,0,6.28);ctx.fill();pts.forEach(q=>{let d=Math.hypot(p.x-q.x,p.y-q.y);if(d<140){ctx.strokeStyle=`rgba(56,189,248,${1-d/140})`;ctx.lineWidth=0.3;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke()}})});requestAnimationFrame(loop)})();
+
+// Visualizer bars
+const vis=document.getElementById('visualizer');for(let i=0;i<50;i++){let b=document.createElement('div');b.className='wave';b.style.height='6px';vis.appendChild(b)}
+
+// Voice - WORKING MODE
+function startVoice(){
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){document.getElementById('voiceStatus').textContent='Use Chrome for Voice';return}
+ let rec=new SR();rec.lang='en-IN';rec.onstart=()=>{document.getElementById('voiceStatus').textContent='🔴 LISTENING... Speak now';document.getElementById('voiceBtn').textContent='🔴 Listening...';[...vis.children].forEach(b=>b.style.height=(10+Math.random()*40)+'px')};
+ rec.onresult=e=>{let t=e.results[0][0].transcript;document.getElementById('voiceStatus').textContent='Heard: '+t;let u=new SpeechSynthesisUtterance(`Bharat AGI 3026 online. You said ${t}. Quantum Core, Genetic Architecture and Ethical Shield are active. Chain of Development Network processing with sovereign intelligence. Jai Hind!`);u.lang='en-IN';speechSynthesis.speak(u)};
+ rec.onend=()=>{document.getElementById('voiceBtn').textContent='🎤 Explore AGI Playground';setTimeout(()=>document.getElementById('voiceStatus').textContent='READY • Tap to Speak',2000)};
+ rec.start();
+}
+</script>
+</body>
+</html>
