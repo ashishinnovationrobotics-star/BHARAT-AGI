@@ -1,13 +1,5 @@
 {
   "rewrites": [
-    { "source": "/future-lab.html", "destination": "/future-lab.html" },
-    { "source": "/login.html", "destination": "/login.html" },
-    { "source": "/api/:path*", "destination": "/api/:path*" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
-  "functions": {
-    "api/index.py": {
-      "runtime": "python3.9"
-    }
-  }
+    { "source": "/api/:path*", "destination": "/api/index.py" }
+  ]
 }
