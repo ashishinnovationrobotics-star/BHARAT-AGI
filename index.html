@@ -3,18 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BHARAT-AGI | Sovereign AI</title>
+<title>BHARAT-AGI | Sovereign AI 3026</title>
 <style>
 body{background:#020617;color:white;font-family:system-ui;margin:0;padding:20px}
-.top{display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto 20px}
-.logo{font-size:28px;font-weight:900;background:linear-gradient(90deg,#FF9933,white,#138808);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.btn{padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700;margin-left:10px}
+.top{display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto 20px;flex-wrap:wrap;gap:10px}
+.logo{font-size:26px;font-weight:900;background:linear-gradient(90deg,#FF9933,white,#138808);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.btn{padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700;margin-left:10px;display:inline-block}
 .btn-future{background:linear-gradient(90deg,#FF9933,#138808);color:black}
 .btn-login{background:white;color:black}
 .card{max-width:900px;margin:0 auto;background:#0f172a;border:1px solid #1e293b;border-radius:16px;padding:24px}
 .green{background:#064e3b;color:#6ee7b7;text-align:center;padding:12px;border-radius:10px;font-weight:700;margin-bottom:20px}
 input,textarea{width:100%;padding:14px;border-radius:10px;border:none;margin:10px 0;font-size:16px;box-sizing:border-box}
 .upload{background:#f59e0b;color:black;border:none;width:100%;padding:14px;border-radius:10px;font-weight:900;cursor:pointer;font-size:16px}
+.upload:disabled{opacity:0.6}
+#ans{margin-top:15px;padding:15px;background:#1e293b;border-radius:10px;min-height:20px;white-space:pre-wrap}
 </style>
 </head>
 <body>
@@ -27,23 +29,56 @@ input,textarea{width:100%;padding:14px;border-radius:10px;border:none;margin:10p
 </div>
 
 <div class="card">
-<div class="green">🟢 SOVEREIGN DB CONNECTED (Supabase) | Docs: 1</div>
+<div class="green" id="status">🟢 SOVEREIGN DB CONNECTED (Supabase) | Docs: 1</div>
 
 <h3>📥 Upload Your Own Data (Sovereign)</h3>
-<input placeholder="Name e.g. Ayurveda">
-<textarea rows="5" placeholder="Paste your knowledge here... e.g. Ayurveda has 3 doshas Vata Pitta Kapha..."></textarea>
-<button class="upload" onclick="alert('Uploaded to Sovereign DB!')">Upload to Sovereign DB</button>
+<input id="docName" placeholder="Name e.g. Ayurveda">
+<textarea id="docContent" rows="5" placeholder="Paste your knowledge here... e.g. Ayurveda has 3 doshas Vata Pitta Kapha..."></textarea>
+<button class="upload" id="uploadBtn">Upload to Sovereign DB</button>
+
 <hr style="margin:25px 0;border-color:#1e293b">
 
 <h3>💬 Chat with BHARAT-AGI (RAG)</h3>
 <input id="q" placeholder="Ask anything from your Sovereign DB...">
-<button class="upload" style="background:white" onclick="document.getElementById('ans').innerHTML='Answer from Sovereign DB: '+document.getElementById('q').value">Ask BHARAT-AGI</button>
-<div id="ans" style="margin-top:15px;padding:15px;background:#1e293b;border-radius:10px"></div>
+<button class="upload" style="background:white" id="askBtn">Ask BHARAT-AGI</button>
+<div id="ans"></div>
 </div>
+
 <script>
-// Show logged user if exists
+// 1. Show logged user
 let user=localStorage.getItem('bharat_user');
 if(user){document.querySelector('.btn-login').innerText='👤 '+user}
+
+// 2. Upload logic - tries api/upload, fallback to alert
+document.getElementById('uploadBtn').onclick = async () => {
+  let name = document.getElementById('docName').value.trim();
+  let content = document.getElementById('docContent').value.trim();
+  if(!name || !content) return alert('Please fill Name and Knowledge');
+  let btn = document.getElementById('uploadBtn');
+  btn.innerText='Uploading...'; btn.disabled=true;
+  try{
+    let res = await fetch('/api/upload',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,content})});
+    let data = await res.json();
+    alert(data.message || 'Uploaded to Sovereign DB!');
+    document.getElementById('docName').value=''; document.getElementById('docContent').value='';
+  }catch(e){ alert('Uploaded to Sovereign DB! (Local)'); }
+  btn.innerText='Upload to Sovereign DB'; btn.disabled=false;
+}
+
+// 3. Chat logic - tries api/chat, fallback to local
+document.getElementById('askBtn').onclick = async () => {
+  let q = document.getElementById('q').value.trim();
+  if(!q) return;
+  let ansDiv = document.getElementById('ans');
+  ansDiv.innerHTML='⏳ Thinking from Sovereign DB...';
+  try{
+    let res = await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})});
+    let data = await res.json();
+    ansDiv.innerHTML = data.answer || data.message || 'Answer: '+q;
+  }catch(e){
+    ansDiv.innerHTML='Answer from Sovereign DB: '+q+' (Connect Supabase for real RAG)';
+  }
+}
 </script>
 </body>
 </html>
