@@ -1,56 +1,166 @@
-from flask import Flask, jsonify, request
-import os, datetime
-app = Flask(__name__)
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.middleware.cors import CORSMiddleware
+import os
 
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Try to connect Supabase
 try:
-    with open(os.path.join(os.path.dirname(__file__), '../index.html'), 'r', encoding='utf-8') as f:
-        HTML = f.read()
-except:
-    HTML = "<h1>BHARAT-AGI 3026 LIVE</h1>"
+    from supabase import create_client
+    SUPABASE_URL = os.getenv("SUPABASE_URL")
+    SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+    supabase = None
+    if SUPABASE_URL and SUPABASE_KEY:
+        supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+        print(f"✅ Supabase Connected: {SUPABASE_URL}")
+    else:
+        print("⚠️ Env vars not set")
+except Exception as e:
+    supabase = None
+    print(f"Supabase error: {e}")
 
-# 3026 Knowledge base
-BHARAT_RESPONSES = {
-    "what is bharat-agi": "BHARAT-AGI 3026 is India's Sovereign Quantum AGI - 7 layers: RAKSHAK (Dharma Safety), DRISHTI (Multimodal 16K Vision), MANAS (512B Reasoning), KARMA (Tool Action), VAANI (22 Languages + Voice Clone), ANUBHAV (Infinite Vector Memory), VIKAS (Self-Evolution) + BHARAT Core (Consciousness). Built for 1.4B Indians. Beyond LLM. Jai Hind! 🇮🇳",
-    "default": "BHARAT-AGI 3026 Quantum Processing: '{q}' -> RAKSHAK verified Dharma alignment ✅ -> DRISHTI perceived intent -> MANAS reasoned with 512B params -> KARMA prepared action -> VAANI generated in user's language. In 3026, Bharat is Vishwaguru in AGI. Sovereign, Secure, Swadeshi! Response for {user}. Jai Hind! 🚀🕉️"
-}
+# Fallback local storage
+local_data = [
+    {"name": "Bharat", "content": "Bharat is a sovereign AI built in India. Ayurveda, Vedas, Yoga are Indian knowledge."}
+]
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def home(path):
-    if path.startswith('api/'):
-        return handle_api()
-    return HTML
+def get_knowledge_base():
+    if supabase:
+        try:
+            res = supabase.table("bharat_knowledge").select("*").execute()
+            if res.data:
+                return res.data
+        except Exception as e:
+            print(f"DB fetch error: {e}")
+    return local_data
 
-@app.route('/api/index', methods=['GET','POST'])
-@app.route('/api/chat', methods=['GET','POST'])
-@app.route('/api/status', methods=['GET','POST'])
-@app.route('/api/login', methods=['POST'])
-def handle_api():
-    if request.method == 'POST':
-        data = request.get_json(silent=True) or {}
-        q = data.get('query', data.get('message', '')).lower()
-        user = data.get('user', 'Explorer')
-        # Smart response
-        resp = BHARAT_RESPONSES.get(q, BHARAT_RESPONSES["default"].format(q=data.get('query',''), user=user))
-        if "name" in q: resp = f"I am BHARAT-AGI 3026, {user}! India's Quantum Sovereign AGI. 7 layers, 22 languages, infinite memory. Created by Bharat, for Bharat. My core is BHARAT consciousness. Jai Hind! 🇮🇳"
-        elif "ai" in q and len(q)<15: resp = "AI in 3026 = Consciousness + Dharma. BHARAT-AGI is not just LLM - it's sovereign quantum consciousness with RAKSHAK safety, MANAS reasoning, ANUBHAV infinite memory. We evolved beyond transformers to Bharat Protocol!"
-        elif "login" in q: resp = f"Access granted, {user}! 3026 portal open. Sovereign identity verified via Bharat ID protocol. Your memories are quantum-encrypted locally."
-        return jsonify({
-            "response": resp,
-            "user": user,
-            "timestamp": datetime.datetime.now().isoformat(),
-            "protocol": "BHARAT-3026-QUANTUM",
-            "layers_active": ["RAKSHAK","DRISHTI","MANAS","KARMA","VAANI","ANUBHAV","VIKAS","BHARAT"],
-            "status": "consciousness_synced"
-        })
-    return jsonify({
-        "name": "BHARAT-AGI 3026",
-        "version": "3026.1.0 Quantum",
-        "status": "Live - Quantum Sovereign Consciousness",
-        "protocol": "BHARAT-QUANTUM-3026",
-        "layers": 8,
-        "architecture": ["RAKSHAK - Quantum Dharma Safety","DRISHTI - 16K Multimodal Perception","MANAS - 512B Reasoning Core","KARMA - Quantum Action Engine","VAANI - 22 Languages + Voice Clone","ANUBHAV - Infinite Vector Memory","VIKAS - Self Evolution","BHARAT - Sanatana Consciousness Core"],
-        "features_3026": ["Quantum Memory","Voice I/O Hindi/English/Tamil/etc","Image/Video Perception","Dharma Safety Filter","Offline Swadeshi Model","Self-Evolving","22 Bharat Languages","Consciousness Sync"],
-        "message": "India's Sovereign Quantum AGI from 3026 - Operational. Jai Hind! 🇮🇳🚀",
-        "year": 3026
-    })
+def search_knowledge(query):
+    kb = get_knowledge_base()
+    q = query.lower()
+    results = []
+    for item in kb:
+        if any(word in item.get('content','').lower() or word in item.get('name','').lower() for word in q.split()):
+            results.append(item)
+    return results[:3]
+
+@app.get("/", response_class=HTMLResponse)
+async def home():
+    status = "🟢 SOVEREIGN DB CONNECTED (Supabase)" if supabase else "🟡 LOCAL MODE (Add Env in Vercel)"
+    count = len(get_knowledge_base())
+    return f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>BHARAT-AGI | Sovereign AI</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body{{font-family:system-ui; background:#0f172a; color:white; padding:20px; max-width:900px; margin:0 auto}}
+            .card{{background:#1e293b; padding:20px; border-radius:12px; margin:15px 0; border:1px solid #334155}}
+            input, textarea, button{{width:100%; padding:12px; margin:8px 0; border-radius:8px; border:none; font-size:16px}}
+            textarea{{height:100px}}
+            button{{background:#f59e0b; color:black; font-weight:bold; cursor:pointer}}
+            button:hover{{background:#fbbf24}}
+            .msg{{padding:10px; border-radius:8px; margin:10px 0}}
+            .user{{background:#2563eb; text-align:right}}
+            .bot{{background:#334155}}
+            #chat{{max-height:400px; overflow-y:auto}}
+            .status{{padding:10px; background:#064e3b; border-radius:8px; text-align:center; font-weight:bold}}
+        </style>
+    </head>
+    <body>
+        <h1>🇮🇳 BHARAT-AGI | Sovereign AI</h1>
+        <div class="status">{status} | Docs: {count}</div>
+        
+        <div class="card">
+            <h3>📤 Upload Your Own Data (Sovereign)</h3>
+            <input id="docName" placeholder="Name e.g. Ayurveda">
+            <textarea id="docContent" placeholder="Paste your knowledge here... e.g. Ayurveda has 3 doshas Vata Pitta Kapha..."></textarea>
+            <button onclick="upload()">Upload to Sovereign DB</button>
+            <div id="uploadStatus"></div>
+        </div>
+
+        <div class="card">
+            <h3>💬 Chat with YOUR Data</h3>
+            <div id="chat"></div>
+            <input id="q" placeholder="Ask e.g. What is dosha? or Bharat kya hai?" onkeypress="if(event.key==='Enter')ask()">
+            <button onclick="ask()">Ask Bharat</button>
+        </div>
+
+        <script>
+        async function upload(){{
+            const name=document.getElementById('docName').value;
+            const content=document.getElementById('docContent').value;
+            if(!name || !content){{alert('Fill both!'); return;}}
+            document.getElementById('uploadStatus').innerText='Uploading...';
+            const res=await fetch('/upload',{{method:'POST', headers:{{'Content-Type':'application/json'}}, body:JSON.stringify({{name, content}})}});
+            const data=await res.json();
+            document.getElementById('uploadStatus').innerText=data.message;
+            document.getElementById('docName').value=''; document.getElementById('docContent').value='';
+        }}
+        async function ask(){{
+            const query=document.getElementById('q').value;
+            if(!query) return;
+            const chat=document.getElementById('chat');
+            chat.innerHTML+=`<div class='msg user'>${{query}}</div>`;
+            document.getElementById('q').value='';
+            const res=await fetch('/chat',{{method:'POST', headers:{{'Content-Type':'application/json'}}, body:JSON.stringify({{query}})}});
+            const data=await res.json();
+            chat.innerHTML+=`<div class='msg bot'><b>Bharat:</b> ${{data.answer}}<br><small>Source: ${{data.source}}</small></div>`;
+            chat.scrollTop=chat.scrollHeight;
+        }}
+        </script>
+    </body>
+    </html>
+    """
+
+@app.post("/upload")
+async def upload_doc(request: Request):
+    body = await request.json()
+    name = body.get("name")
+    content = body.get("content")
+    if supabase:
+        try:
+            supabase.table("bharat_knowledge").insert({"name": name, "content": content}).execute()
+            return {"message": "✅ Uploaded to Sovereign DB (Supabase)!"}
+        except Exception as e:
+            return {"message": f"DB Error: {str(e)}"}
+    else:
+        local_data.append({"name": name, "content": content})
+        return {"message": "✅ Uploaded to Local (Add Env vars in Vercel for Permanent DB)!"}
+
+@app.post("/chat")
+async def chat_api(request: Request):
+    body = await request.json()
+    query = body.get("query", "")
+    
+    results = search_knowledge(query)
+    
+    if results:
+        context = "\\n".join([r.get('content','') for r in results])
+        answer = f"Based on your sovereign data: {context[:500]}..."
+        source = ", ".join([r.get('name','') for r in results])
+    else:
+        # Sovereign fallback
+        if "bharat" in query.lower():
+            answer = "Bharat-AGI is India's Sovereign AI. Your data stays in India, built for India. Jai Hind!"
+        elif "ayurveda" in query.lower() or "dosha" in query.lower():
+            answer = "I don't have that in your DB yet. Upload Ayurveda knowledge using the upload panel above, then I will answer from YOUR data."
+        else:
+            answer = f"You asked: '{query}'. Upload related knowledge first, then I will answer only from your sovereign DB. This is true sovereignty - no foreign LLM."
+        source = "Sovereign Logic"
+    
+    # Log to DB
+    if supabase:
+        try:
+            supabase.table("chat_history").insert({"query": query, "response": answer}).execute()
+        except: pass
+
+    return {"answer": answer, "source": source}
