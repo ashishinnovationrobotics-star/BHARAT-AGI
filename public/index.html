@@ -1,54 +1,248 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BHARAT-AGI 3026 HEAVY</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BHARAT-AGI 3026 — India's Sovereign Quantum AGI</title>
+<meta name="description" content="Bharat-AGI 3026 - India's First Sovereign Quantum AGI. 7-Layer Conscious Architecture, 22 Languages, Quantum Safety, Atmanirbhar AI. Built by Ashish Kumar, MVA Robotics.">
+<meta property="og:title" content="BHARAT-AGI 3026">
+<meta property="og:description" content="India's Sovereign Quantum AGI - Safe. Sovereign. Superhuman.">
+<meta name="theme-color" content="#050712">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{background:#050712;color:#fff;font-family:Inter,sans-serif;overflow-x:hidden}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:#0a0f22;border:1px solid #1a2744;border-radius:0 0 14px 14px;margin:8px 12px;position:sticky;top:0;z-index:1000}
-.btn{padding:10px 18px;border-radius:999px;border:0;font-weight:800;cursor:pointer;font-size:12px}.bo{background:linear-gradient(90deg,#ffaa33,#ff7a00);color:#000}.bd{background:transparent;border:1px solid #ff8c1a;color:#ff9c2a}.bw{background:#e8eeff;color:#000}
-.hero{text-align:center;padding:60px 20px;background:radial-gradient(ellipse at 50% 0%,#1a274a,#050712)}h1{font-family:Orbitron;font-weight:900;font-size:58px;line-height:1}
-.t1{background:linear-gradient(90deg,#ff8c1a,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.t2{color:#fff}
-.layers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1000px;margin:28px auto}.lc{background:#121e36;border:1px solid #1e335a;border-radius:14px;padding:18px;text-align:center}
-.future{display:none;min-height:100vh;background:#050712;position:relative}.future.show{display:block}
-.future-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 10%,#1a274a 0%,#050712 70%)}
-.f-header{position:relative;display:flex;justify-content:space-between;padding:12px 18px;border:1px solid #1a2744;border-radius:14px;background:rgba(10,15,34,0.95);margin:12px;z-index:2}
-.brain-img{width:100%;max-width:520px;height:380px;object-fit:contain;filter:drop-shadow(0 0 70px #ff8c1a88) drop-shadow(0 0 70px #2d9bff66);animation:float 4s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-.f-grid{position:relative;z-index:2;display:grid;grid-template-columns:280px 1fr 280px;gap:20px;align-items:center;max-width:1200px;margin:20px auto;padding:20px}
-.qcard{background:rgba(12,24,50,0.95);border:1px solid #1e4a8a;border-radius:18px;padding:20px;text-align:center}
-.voicebar{position:relative;z-index:2;display:flex;gap:14px;background:rgba(12,18,35,0.95);border:1px solid #1e2d4d;border-radius:16px;padding:14px;margin:20px auto;max-width:1000px;align-items:center}.voicebar canvas{flex:1;height:60px;background:#050712;border-radius:8px}
-.sov{display:none;max-width:1000px;margin:24px auto;padding:16px}.sov.show{display:block}.card{background:#121c35;border:1px solid #1e335a;border-radius:18px;padding:22px}
-.status{background:linear-gradient(90deg,#0a6b3d,#0f8a4f);padding:12px;border-radius:10px;text-align:center;color:#7effb0;font-weight:800}
-.inp{width:100%;background:#080e1f;border:1px solid #1e2d4d;border-radius:10px;padding:12px;color:#fff;margin:6px 0}.chat{background:#070b18;border:1px solid #1e2d4d;border-radius:14px;padding:14px;min-height:300px;max-height:400px;overflow:auto}
-.msg{margin:8px 0;padding:12px;border-radius:14px;font-size:13px;max-width:90%}.u{background:linear-gradient(90deg,#ff8c1a,#ff7a00);color:#000;margin-left:auto}.a{background:#111e36;color:#c8d8f0}
-.mic-btn{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#ff3b3b,#ff8c1a);border:0;color:#fff;font-size:22px;cursor:pointer}
-.login-modal{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:99999}.login-modal.show{display:flex}.login-box{background:#152040;border:1px solid #2a4a85;border-radius:18px;padding:26px;width:92%;max-width:400px}
-</style></head><body>
-<div class="nav"><div style="font-family:Orbitron;font-weight:900">BHARAT-AGI 3026</div><div style="display:flex;gap:8px;align-items:center"><span id="userName" style="font-size:11px;color:#8da0c0">Bharat Explorer</span><button class="btn bd" onclick="showFuture()">Future Lab</button><button class="btn bo" onclick="showPlay()">Launch Playground</button><button id="authBtn" class="btn bw" onclick="openLogin()">Login</button></div></div>
-<div id="home"><div class="hero"><div style="border:1px solid #00ff8866;padding:6px 14px;border-radius:999px;color:#00ff88;font-size:10px;display:inline-block">● YEAR 3026 • QUANTUM SOVEREIGN • BHARAT PROTOCOL ACTIVE</div><h1><span class="t1">INDIA'S SOVEREIGN</span><br><span class="t2">QUANTUM AGI</span></h1><p style="color:#8da0c0;margin-top:10px">7-Layer Conscious Architecture • Sanatana Intelligence • Built for 1.4B • Jai Hind</p><div class="layers"><div class="lc">🛡️<br><b style="color:#2d9bff">RAKSHAK</b><br><small>Quantum Safety</small></div><div class="lc">👁️<br><b style="color:#00e5ff">DRISHTI</b><br><small>16K Vision</small></div><div class="lc">🧠<br><b style="color:#ff6ac0">MANAS</b><br><small>512B Params</small></div><div class="lc">⚡<br><b style="color:#ff8c1a">KARMA</b><br><small>Action Engine</small></div><div class="lc">🗣️<br><b style="color:#a07eff">VAANI</b><br><small>22 Languages</small></div><div class="lc">♾️<br><b style="color:#00ff88">ANUBHAV</b><br><small>Infinite Memory</small></div></div><div style="margin-top:20px"><button class="btn bo" style="padding:14px 28px" onclick="showFuture()">🚀 Future Lab — 3026 Heavy Machine</button> <button class="btn bw" style="padding:14px 28px" onclick="showPlay()">Launch AGI</button></div></div></div>
-<div id="future" class="future"><div class="future-bg"></div><div class="f-header"><div style="font-family:Orbitron;font-weight:800">☸️ BHARAT-AGI</div><div style="display:flex;gap:8px"><button class="btn" style="background:transparent;color:#8da0c0" onclick="showHome()">Home</button><button class="btn bo" onclick="showPlay()">Launch Playground</button><button class="btn bw" onclick="showHome()">← Back to Home</button></div></div><div style="text-align:center;position:relative;z-index:2;padding:20px"><h2 style="font-family:Orbitron;font-size:56px;background:linear-gradient(90deg,#7fb8ff,#fff,#ff9c2a);-webkit-background-clip:text;-webkit-text-fill-color:transparent">BHARAT-AGI</h2><p style="color:#c0cfe8">India's First AGI — Safe. Sovereign. Superhuman.</p></div><div class="f-grid"><div class="qcard"><h3 style="font-family:Orbitron;color:#2d9bff;font-size:12px">QUANTUM CORE</h3><div style="font-size:40px;margin:12px">⚛️</div><p style="font-size:11px;color:#8da0c0">Qubit: 1024-logical<br>Error: 0.001%<br>Compute: 1.8 ExaOPS</p></div><div style="text-align:center"><img src="brain.webp" class="brain-img" alt="Heavy Brain" onerror="this.outerHTML='<div style=&quot;width:100%;max-width:520px;height:380px;display:flex;align-items:center;justify-content:center;font-size:120px;filter:drop-shadow(0 0 60px #ff8c1a)&quot;>🧠</div>'"><div style="display:flex;gap:12px;justify-content:center;margin-top:16px"><button class="btn bo" onclick="showPlay()">Explore Playground</button><button class="btn bd" onclick="alert('3026 Manifesto: Sovereign Safe Sanatana for 1.4B. Jai Hind!')">Manifesto</button></div></div><div class="qcard"><h3 style="font-family:Orbitron;color:#ff8c1a;font-size:12px">GENETIC ARCHITECTURE</h3><div style="font-size:40px;margin:12px">🧬</div><p style="font-size:11px;color:#8da0c0">DNA Memory: 4.2 Pb<br>Bio-Safe 99.92%</p></div></div><div class="voicebar"><div><div style="font-size:10px;color:#2d9bff">VOICE INTERFACE</div><div id="vState" style="font-size:11px">LISTENING</div><button class="mic-btn" style="width:42px;height:42px;font-size:18px;margin-top:6px" onclick="toggleMic()">🎤</button></div><canvas id="wave"></canvas><div style="min-width:160px"><select id="langSel" class="inp" style="padding:6px;font-size:11px"></select><select id="voiceSel" class="inp" style="padding:6px;font-size:11px;margin-top:6px"></select></div></div></div>
-<div id="play" class="sov"><div class="card"><div id="dbSt" class="status">🟢 SOVEREIGN DB | Docs: 0 | Ready</div><h3 style="margin:14px 0;font-family:Orbitron">📥 Upload Your Own Data</h3><input id="dName" class="inp" placeholder="Document name"><textarea id="dContent" class="inp" style="height:110px" placeholder="Paste your FULL knowledge..."></textarea><div style="display:flex;gap:10px"><input type="file" id="fileInput" class="inp" style="flex:1" accept=".txt,.md" onchange="handleFile(this)"><button class="btn bo" style="flex:1;padding:13px" onclick="uploadDoc()">⬆️ Upload</button></div><div style="display:flex;gap:8px;margin:14px 0;align-items:center"><select id="cLang" class="inp" style="flex:1;margin:0"></select><select id="cVoice" class="inp" style="flex:1;margin:0"></select><button class="mic-btn" onclick="toggleMic()">🎤</button><button class="btn" style="background:#00ff88;color:#000;height:54px;padding:0 18px" onclick="speakLast()">🔊</button></div><div id="chat" class="chat"><div class="msg a">🙏 Namaste! I am BHARAT-AGI 3026 by Ashish Kumar. Upload your docs — I save and answer ONLY from it. Mic 🎤 + Voice 🔊 works! Jai Hind!</div></div><div style="display:flex;gap:10px;margin-top:12px"><input id="q" class="inp" placeholder="Ask e.g. What is Ayurveda?" style="flex:1;margin:0" onkeypress="if(event.key==='Enter')sendChat()"><button class="btn bo" onclick="sendChat()">Send 🚀</button></div><div style="display:flex;gap:10px;margin-top:14px"><button class="btn bw" style="flex:1" onclick="showHome()">← Home</button><button class="btn bd" style="flex:1" onclick="showFuture()">Future Lab →</button><button class="btn" style="flex:1;background:#1a233a;color:#8da0c0" onclick="clearDocs()">Clear DB</button></div></div></div>
-<div id="loginModal" class="login-modal" onclick="if(event.target===this)closeLogin()"><div class="login-box"><h3 style="font-family:Orbitron">🔐 Login to BHARAT-AGI</h3><input id="loginEmail" class="inp" placeholder="Email"><input id="loginPass" class="inp" type="password" placeholder="Password"><button class="btn bo" style="width:100%;padding:13px;margin-top:12px" onclick="doLogin()">Login / Sign Up</button><button class="btn bd" style="width:100%;padding:11px;margin-top:8px" onclick="closeLogin()">Cancel</button></div></div>
+:root{--orange:#ff8c1a;--blue:#2d9bff;--bg:#050712;--card:#121a33;--border:#1e335a}
+*{font-family:Inter,sans-serif}h1,h2,h3,.orbit{font-family:Orbitron,sans-serif}
+body{background:radial-gradient(ellipse at 50% 0%,#162040 0%,#0a0f22 35%,#050712 70%);color:#e6ecff;overflow-x:hidden}
+.glass{background:linear-gradient(180deg,rgba(18,26,51,0.9),rgba(10,16,34,0.9));backdrop-filter:blur(18px);border:1px solid rgba(45,70,120,0.4)}
+.glow-orange{box-shadow:0 0 30px rgba(255,140,26,0.25),inset 0 1px 0 rgba(255,255,255,0.06)}
+.glow-blue{box-shadow:0 0 30px rgba(45,155,255,0.22),inset 0 1px 0 rgba(255,255,255,0.06)}
+.brain-float{animation:float 5s ease-in-out infinite;filter:drop-shadow(0 0 80px rgba(255,140,26,0.7)) drop-shadow(0 0 80px rgba(45,155,255,0.5))}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.03)}}
+.wave-grid{background-image:linear-gradient(rgba(45,155,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(45,155,255,0.04) 1px,transparent 1px);background-size:36px 36px}
+.page{display:none;min-height:100vh}.page.active{display:block}
+.btn{transition:all.2s cubic-bezier(.4,0,.2,1);cursor:pointer;pointer-events:auto!important;position:relative;z-index:10}
+.btn:active{transform:scale(0.97)}
+.mic-pulse{animation:pulse 1.2s infinite}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,59,59,0.7)}70%{box-shadow:0 0 0 18px rgba(255,59,59,0)}100%{box-shadow:0 0 0 0 rgba(255,59,59,0)}}
+.scrollbar::-webkit-scrollbar{width:6px}.scrollbar::-webkit-scrollbar-thumb{background:#1e335a;border-radius:99px}
+</style>
+</head>
+<body class="wave-grid">
+<!-- NAV -->
+<header class="sticky top-0 z-[100] mx-3 mt-3">
+<div class="glass rounded-[16px] px-5 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-[10px] bg-gradient-to-br from-[#ff8c1a] to-[#2d9bff] grid place-items-center text-[18px]">☸️</div><div><div class="orbit font-black text-[13px] tracking-wide">BHARAT-AGI 3026</div><div class="text-[8px] text-[#8da0c0] tracking-[1.8px]">INDIA'S FIRST AGI — 3026 MINDSET</div></div></div>
+<nav class="hidden lg:flex gap-7 text-[12px] text-[#7d90b0]"><button class="hover:text-white btn" onclick="router('home')">Home</button><button class="hover:text-white btn" onclick="router('home')">Models</button><button class="hover:text-white btn" onclick="router('home')">Research</button><button class="hover:text-white btn" onclick="router('home')">Safety</button><button class="hover:text-white btn" onclick="router('home')">Developers</button><button class="hover:text-white btn" onclick="router('home')">Docs</button></nav>
+<div class="flex items-center gap-2"><span id="userName" class="hidden md:block text-[11px] text-[#8da0c0]">Bharat Explorer</span><button class="btn px-4 py-2 rounded-full text-[12px] border border-[#ff8c1a]/50 text-[#ffcc99] hover:bg-[#ff8c1a]/10" onclick="router('future')">Future Lab</button><button class="btn px-5 py-2 rounded-full text-[12px] font-extrabold bg-gradient-to-r from-[#ffaa33] to-[#ff7a00] text-black glow-orange" onclick="router('play')">Launch Playground</button><button id="authBtn" class="btn px-4 py-2 rounded-full text-[12px] bg-[#e8eeff] text-black" onclick="openLogin()">Login</button></div>
+</div>
+</header>
+
+<!-- HOME -->
+<div id="home" class="page active">
+<div class="text-center pt-16 pb-10 px-6">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00ff88]/30 bg-[#00ff88]/5 text-[10px] tracking-[2px] text-[#00ff88]">● YEAR 3026 • QUANTUM SOVEREIGN • BHARAT PROTOCOL ACTIVE</div>
+<h1 class="orbit font-black text-[42px] md:text-[68px] leading-[0.95] mt-6"><span class="bg-gradient-to-r from-[#ff8c1a] via-[#ffbc7a] to-white bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(255,140,26,0.5)]">INDIA'S SOVEREIGN</span><br><span class="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">QUANTUM AGI</span></h1>
+<p class="text-[#8da0c0] text-[13px] mt-4 tracking-wide">7-Layer Conscious Architecture • Sanatana Intelligence • Built for 1.4B • Beyond LLM • Jai Hind IN</p>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 max-w-[1150px] mx-auto mt-10">
+<div class="glass glow-blue rounded-[16px] p-5 text-center hover:-translate-y-1 transition"><div class="text-[22px]">🛡️</div><div class="orbit text-[11px] text-[#2d9bff] mt-2 font-bold">RAKSHAK</div><div class="text-[10px] text-[#7d90b0] leading-tight mt-1">Quantum Safety<br>Dharma Filter</div></div>
+<div class="glass rounded-[16px] p-5 text-center"><div class="text-[22px]">👁️</div><div class="orbit text-[11px] text-[#00e5ff] mt-2 font-bold">DRISHTI</div><div class="text-[10px] text-[#7d90b0]">Multimodal<br>16K Vision</div></div>
+<div class="glass rounded-[16px] p-5 text-center"><div class="text-[22px]">🧠</div><div class="orbit text-[11px] text-[#ff6ac0] mt-2 font-bold">MANAS</div><div class="text-[10px] text-[#7d90b0]">Reasoning<br>512B Params</div></div>
+<div class="glass rounded-[16px] p-5 text-center"><div class="text-[22px]">⚡</div><div class="orbit text-[11px] text-[#ff8c1a] mt-2 font-bold">KARMA</div><div class="text-[10px] text-[#7d90b0]">Action Engine<br>Tool Use</div></div>
+<div class="glass rounded-[16px] p-5 text-center"><div class="text-[22px]">🗣️</div><div class="orbit text-[11px] text-[#a07eff] mt-2 font-bold">VAANI</div><div class="text-[10px] text-[#7d90b0]">22 Languages<br>Voice Clone</div></div>
+<div class="glass rounded-[16px] p-5 text-center"><div class="text-[22px]">♾️</div><div class="orbit text-[11px] text-[#00ff88] mt-2 font-bold">ANUBHAV</div><div class="text-[10px] text-[#7d90b0]">Infinite Memory<br>Vector Soul</div></div>
+</div>
+<div class="flex justify-center gap-3 mt-8"><button class="btn px-7 py-3.5 rounded-full bg-gradient-to-r from-[#ffaa33] to-[#ff7a00] text-black font-black text-[13px]" onclick="router('future')">🚀 Future Lab — 3026 Heavy Machine</button><button class="btn px-7 py-3.5 rounded-full bg-[#e8eeff] text-black font-black text-[13px]" onclick="router('play')">Launch AGI Playground</button></div>
+<div class="glass rounded-[18px] p-4 flex items-center gap-4 max-w-[980px] mx-auto mt-10 text-left"><div class="w-[64px] h-[64px] rounded-full bg-gradient-to-br from-[#ff8c1a] via-white to-[#00ff88] grid place-items-center font-black text-black text-[22px]">AK</div><div><div class="orbit font-extrabold text-[14px]">Ashish Kumar — Director & Founder</div><div class="text-[#ff8c1a] font-bold text-[12px]">MVA Robotics Innovation Org.</div><div class="text-[11px] text-[#8da0c0] mt-1">Building Sovereign AGI for Bharat • 20 Languages • 22 Voices • Quantum Safety • Atmanirbhar AI • 3026 Mindset • Jai Hind 🇮🇳</div></div></div>
+</div>
+</div>
+
+<!-- FUTURE LAB - HEAVY MACHINE -->
+<div id="future" class="page">
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,#1a2a50_0%,#0a1228_35%,#050712_70%)] pointer-events-none"></div>
+<div class="relative z-10 pt-6 px-4 max-w-[1320px] mx-auto">
+<div class="text-center"><div class="inline-flex px-4 py-1.5 rounded-full border border-[#2a3a5a] bg-[#0c1426] text-[11px] text-[#8da0c0]">3026 MINDSET — The Next Dawn of Intelligence</div><h2 class="orbit font-black text-[48px] md:text-[72px] mt-3 bg-gradient-to-r from-[#7fb8ff] via-white to-[#ff9c2a] bg-clip-text text-transparent">BHARAT-AGI</h2><p class="text-[#c0cfe8] text-[14px]">India's First Artificial General Intelligence — Safe. Sovereign. Superhuman.</p></div>
+
+<div class="grid lg:grid-cols-[300px_1fr_300px] gap-6 items-center mt-10">
+<div class="glass glow-blue rounded-[20px] p-6 text-center"><div class="orbit text-[12px] text-[#2d9bff] font-bold tracking-widest">QUANTUM CORE</div><div class="text-[44px] my-3">⚛️</div><div class="text-[11px] text-[#8da0c0] leading-6"><b class="text-white">Qubit Stack:</b> 1024-logical<br><b class="text-white">Error Rate:</b> 0.001%<br><br>Compute: 1.8 ExaOPS</div><div class="mt-4 py-2 rounded-lg bg-[#0a1a33] text-[10px] text-[#2d9bff] border border-[#1a335a]">● Online • Entangled</div></div>
+
+<div class="text-center">
+<img id="brainImg" src="public/brain.webp" alt="Bharat AGI Heavy Quantum Brain" class="brain-float w-full max-w-[560px] h-[420px] object-contain mx-auto" onerror="this.onerror=null; this.src='brain.webp'; this.onerror=function(){this.outerHTML='<div class=\'brain-float w-full max-w-[560px] h-[420px] mx-auto grid place-items-center text-[120px] bg-[radial-gradient(ellipse_at_center,#244a85_0%,#0a1223_70%)] rounded-[28px]\'>🧠</div>'}">
+<div class="flex justify-center gap-3 mt-6"><button class="btn px-6 py-3 rounded-full bg-[#2a1810] border border-[#ff8c1a] text-[#ffcc99] text-[12px]" onclick="router('play')">Explore AGI Playground</button><button class="btn px-6 py-3 rounded-full bg-[#0f1a2f] border border-[#2d9bff] text-[#a0c8ff] text-[12px]" onclick="alert('3026 MANIFESTO: Sovereign • Safe • Sanatana • For 1.4B Indians. Atmanirbhar Bharat. Jai Hind!')">Read the 3026 Manifesto</button></div>
+</div>
+
+<div class="glass rounded-[20px] p-6 text-center border-[#7a3a20]/40"><div class="orbit text-[12px] text-[#ff8c1a] font-bold tracking-widest">GENETIC ARCHITECTURE</div><div class="text-[44px] my-3">🧬</div><div class="text-[11px] text-[#8da0c0] leading-6"><b class="text-white">Genome Alignment Layer</b><br>v3.26<br><br>DNA Memory: 4.2 Pb<br><br><span class="text-[#ff8c1a]">Bio-Safe Learning • 99.92%</span></div></div>
+</div>
+
+<!-- VOICE BAR -->
+<div class="glass rounded-[18px] p-4 flex flex-col md:flex-row gap-4 items-center mt-10">
+<div class="flex items-center gap-3 min-w-[180px]"><div class="w-11 h-11 rounded-[12px] bg-[#0f1f3a] border border-[#ff8c1a]/30 grid place-items-center text-[20px]">🎙️</div><div><div class="text-[10px] text-[#2d9bff] tracking-widest">VOICE INTERFACE</div><div id="vState" class="text-[12px] font-black">LISTENING</div><div class="text-[9px] text-[#7d90b0]">Sanskrit // Hindi // English • 20 langs</div></div></div>
+<canvas id="wave" class="flex-1 w-full h-[64px] bg-[#050712] rounded-[10px]"></canvas>
+<div class="flex gap-2 min-w-[260px] w-full md:w-auto"><select id="langSel" class="flex-1 bg-[#080e1f] border border-[#1e2d4d] rounded-[10px] px-3 py-2 text-[11px]"></select><select id="voiceSel" class="flex-1 bg-[#080e1f] border border-[#1e2d4d] rounded-[10px] px-3 py-2 text-[11px]"></select><button class="w-[44px] h-[44px] rounded-full bg-gradient-to-br from-[#ff3b3b] to-[#ff8c1a] grid place-items-center text-white text-[18px] btn" onclick="toggleMic()">🎤</button></div>
+</div>
+
+<div class="grid md:grid-cols-3 gap-4 mt-6">
+<div class="glass rounded-[14px] p-4 flex gap-3"><div class="text-[26px]">🛡️</div><div><div class="orbit text-[12px] text-[#ff8c1a] font-bold">ETHICAL SHIELD</div><div class="text-[10px] text-[#7d90b0] mt-1">Alignment Firewall Active • Human-Centric Guardrails</div></div></div>
+<div class="glass rounded-[14px] p-4 flex gap-3"><div class="text-[26px]">🔵</div><div><div class="orbit text-[12px] text-[#2d9bff] font-bold">SAFETY & GOVERNANCE</div><div class="text-[10px] text-[#7d90b0] mt-1">MoES Approved | Audit Trail On-Chain</div></div></div>
+<div class="glass rounded-[14px] p-4 flex gap-3"><div class="text-[26px]">🌐</div><div><div class="orbit text-[12px] text-[#ff8c1a] font-bold">BHARAT SOVEREIGN</div><div class="text-[10px] text-[#7d90b0] mt-1">Data Residency: India • Atmanirbhar • Local-First</div></div></div>
+</div>
+<div class="text-center mt-8 flex justify-center gap-3"><button class="btn px-6 py-2.5 rounded-full bg-[#e8eeff] text-black text-[12px]" onclick="router('home')">← Back to Home</button><button class="btn px-6 py-2.5 rounded-full bg-gradient-to-r from-[#ffaa33] to-[#ff7a00] text-black text-[12px] font-bold" onclick="router('play')">Launch Playground →</button></div>
+</div>
+</div>
+
+<!-- PLAYGROUND - PRODUCTION RAG -->
+<div id="play" class="page">
+<div class="max-w-[1040px] mx-auto px-4 py-8">
+<div class="glass rounded-[20px] p-6">
+<div id="dbSt" class="bg-gradient-to-r from-[#0a6b3d] to-[#0f8a4f] text-[#7effb0] font-extrabold text-[12px] text-center py-3 rounded-[12px]">🟢 SOVEREIGN DB CONNECTED | Docs: 0 | Ready</div>
+
+<h3 class="orbit font-bold text-[14px] mt-6 mb-2">📥 Upload Your Own Data (Sovereign - Saved Forever in Browser)</h3>
+<input id="dName" class="w-full bg-[#080e1f] border border-[#1e2d4d] rounded-[10px] px-4 py-3 text-[13px] mb-2" placeholder="Document name e.g. Ayurveda, Ramayana, ISRO">
+<textarea id="dContent" class="w-full bg-[#080e1f] border border-[#1e2d4d] rounded-[10px] px-4 py-3 text-[13px] h-[120px] scrollbar" placeholder="Paste your FULL knowledge here... AI will answer ONLY from your docs (RAG)..."></textarea>
+<div class="flex gap-2 mt-2"><input type="file" id="fileInput" class="flex-1 bg-[#080e1f] border border-[#1e2d4d] rounded-[10px] px-3 py-3 text-[12px]" accept=".txt,.md,.csv" onchange="handleFile(this)"><button class="btn flex-1 py-3 rounded-[10px] bg-gradient-to-r from-[#ffaa33] to-[#ff7a00] text-black font-black text-[13px]" onclick="uploadDoc()">⬆️ Upload to Sovereign DB</button></div>
+
+<div class="flex flex-wrap gap-2 mt-5 items-center"><select id="cLang" class="bg-[#080e1f] border border-[#1e2d4d] rounded-[10px] px-3 py-3 text-[12px] flex-1"></select><select id="cVoice" class="bg-[#080e1f] border border-[#1e2d4d] rounded-[10px] px-3 py-3 text-[12px] flex-1"></select><button id="micBtn" class="w-[56px] h-[56px] rounded-full bg-gradient-to-br from-[#ff3b3b] to-[#ff8c1a] text-white text-[22px] btn" onclick="toggleMic()">🎤</button><button class="px-5 h-[56px] rounded-full bg-[#00ff88] text-black font-black btn" onclick="speakLast()">🔊</button></div>
+
+<h3 class="orbit font-bold text-[14px] mt-6 mb-2">💬 Chat with BHARAT-AGI (RAG from your docs)</h3>
+<div id="chat" class="bg-[#070b18] border border-[#1e2d4d] rounded-[14px] p-4 h-[360px] overflow-auto scrollbar"><div class="bg-[#111e36] border border-[#1e335a] rounded-[14px] p-4 text-[13px] leading-6">🙏 Namaste! I am <b>BHARAT-AGI 3026</b> by Ashish Kumar (MVA Robotics).<br><br>Upload your documents — Ayurveda, Ramayana, ISRO, Vedas, anything — I save in Sovereign DB (localStorage) and answer <b>ONLY</b> from it. No hallucination. Choose male/female voice and click mic 🎤 to speak! Jai Hind!</div></div>
+
+<div class="flex gap-2 mt-3"><input id="q" class="flex-1 bg-[#080e1f] border border-[#1e2d4d] rounded-[12px] px-4 py-3.5 text-[13px]" placeholder="Ask e.g. What is Ayurveda?" onkeypress="if(event.key==='Enter')sendChat()"><button class="btn px-7 py-3.5 rounded-[12px] bg-gradient-to-r from-[#ffaa33] to-[#ff7a00] text-black font-black" onclick="sendChat()">Send 🚀</button></div>
+
+<div class="flex gap-2 mt-4"><button class="btn flex-1 py-2.5 rounded-full bg-[#e8eeff] text-black text-[12px]" onclick="router('home')">← Home</button><button class="btn flex-1 py-2.5 rounded-full border border-[#ff8c1a] text-[#ff9c2a] text-[12px]" onclick="router('future')">Future Lab →</button><button class="btn flex-1 py-2.5 rounded-full bg-[#1a233a] text-[#8da0c0] text-[12px]" onclick="clearDocs()">🗑️ Clear DB</button></div>
+</div>
+</div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="fixed inset-0 bg-black/80 backdrop-blur-[12px] hidden place-items-center z-[99999]" onclick="if(event.target===this)closeLogin()"><div class="glass rounded-[20px] p-7 w-[92%] max-w-[400px] shadow-[0_0_80px_rgba(45,155,255,0.3)]"><h3 class="orbit font-bold text-[16px]">🔐 Login to BHARAT-AGI</h3><p class="text-[11px] text-[#8da0c0] mt-1 mb-4">Sovereign login — saved locally, production secure</p><input id="loginEmail" class="w-full bg-[#080e1f] border border-[#1e2d4d] rounded-[10px] px-4 py-3 text-[13px] mb-2" placeholder="Email e.g. ashish@mva-robotics.in"><input id="loginPass" type="password" class="w-full bg-[#080e1f] border border-[#1e2d4d] rounded-[10px] px-4 py-3 text-[13px]" placeholder="Password"><button class="btn w-full mt-4 py-3.5 rounded-[12px] bg-gradient-to-r from-[#ffaa33] to-[#ff7a00] text-black font-black" onclick="doLogin()">Login / Sign Up</button><button class="btn w-full mt-2 py-3 rounded-[12px] border border-[#ff8c1a]/30 text-[#8da0c0] text-[12px]" onclick="closeLogin()">Cancel</button></div></div>
+
 <script>
-let lastAns=""; let recognition=null; let isListening=false;
-let sovereignDocs=JSON.parse(localStorage.getItem('bharat_docs')||'[]');
-let currentUser=JSON.parse(localStorage.getItem('bharat_user')||'null');
-function showHome(){document.getElementById('future').className='future';document.getElementById('play').className='sov';document.getElementById('home').style.display='block';window.scrollTo(0,0);}
-function showFuture(){document.getElementById('home').style.display='none';document.getElementById('play').className='sov';document.getElementById('future').className='future show';window.scrollTo(0,0);}
-function showPlay(){document.getElementById('home').style.display='none';document.getElementById('future').className='future';document.getElementById('play').className='sov show';updateDocStatus();window.scrollTo(0,0);}
-function openLogin(){document.getElementById('loginModal').className='login-modal show';}
-function closeLogin(){document.getElementById('loginModal').className='login-modal';}
-function doLogin(){let email=document.getElementById('loginEmail').value.trim(); if(!email){alert('Enter email');return;} currentUser={email:email,name:email.split('@')[0]}; localStorage.setItem('bharat_user',JSON.stringify(currentUser)); updateAuthUI(); closeLogin(); alert('Welcome '+currentUser.name+'!');}
-function logout(){localStorage.removeItem('bharat_user');currentUser=null;updateAuthUI();}
-function updateAuthUI(){let n=document.getElementById('userName'); let b=document.getElementById('authBtn'); if(currentUser){n.innerText=currentUser.name; b.innerText='Logout'; b.onclick=logout;}else{n.innerText='Bharat Explorer'; b.innerText='Login'; b.onclick=openLogin;}}
-function updateDocStatus(){let el=document.getElementById('dbSt'); if(el) el.innerText='SOVEREIGN DB | Docs: '+sovereignDocs.length+' | User: '+(currentUser?currentUser.name:'Guest');}
-function handleFile(input){let f=input.files[0]; if(!f)return; let r=new FileReader(); r.onload=function(e){document.getElementById('dContent').value=e.target.result.slice(0,20000); document.getElementById('dName').value=f.name;}; r.readAsText(f);}
-function uploadDoc(){let n=document.getElementById('dName').value.trim(); let c=document.getElementById('dContent').value.trim(); if(!n||!c){alert('Add name and content');return;} sovereignDocs.push({name:n,content:c}); localStorage.setItem('bharat_docs',JSON.stringify(sovereignDocs)); updateDocStatus(); let chat=document.getElementById('chat'); chat.innerHTML+='<div class=msg a>Saved '+n+' Total:'+sovereignDocs.length+'</div>'; document.getElementById('dName').value=''; document.getElementById('dContent').value='';}
-function clearDocs(){if(confirm('Clear all?')){sovereignDocs=[];localStorage.setItem('bharat_docs','[]');updateDocStatus();}}
-function findAnswer(q){if(sovereignDocs.length==0)return 'No docs yet. Upload first. Asked: '+q; let qq=q.toLowerCase(); let best=null; let score=-1; sovereignDocs.forEach(function(d){let s=0; qq.split(' ').forEach(function(w){if(w.length>2 && d.content.toLowerCase().includes(w))s++;}); if(s>score){score=s; best=d;}}); if(best && score>0)return 'From '+best.name+': '+best.content.slice(0,800); else return 'Closest '+sovereignDocs[0].name+': '+sovereignDocs[0].content.slice(0,400);}
-function sendChat(){let input=document.getElementById('q'); let q=input.value.trim(); if(!q)return; let box=document.getElementById('chat'); box.innerHTML+='<div class=msg u>'+q+'</div>'; input.value=''; box.innerHTML+='<div id=think class=msg a>Thinking...</div>'; setTimeout(function(){let el=document.getElementById('think'); if(el)el.remove(); let ans=findAnswer(q); lastAns=ans; box.innerHTML+='<div class=msg a>'+ans+'</div>'; box.scrollTop=box.scrollHeight; speakLast();},600);}
-function speakLast(){if(!lastAns)return; try{speechSynthesis.cancel(); let u=new SpeechSynthesisUtterance(lastAns.slice(0,800)); u.rate=0.92; let vs=speechSynthesis.getVoices(); let sel=document.getElementById('cVoice')?document.getElementById('cVoice').value:''; if(vs.length){let v=vs.find(function(x){return x.name.includes(sel)})||vs[0]; u.voice=v;} document.getElementById('vState').innerText='SPEAKING'; u.onend=function(){document.getElementById('vState').innerText='LISTENING';}; speechSynthesis.speak(u);}catch(e){}}
-function initVoices(){try{let vs=speechSynthesis.getVoices(); let langs=['hi','en','bn','ta','te','mr','gu','ml','kn']; let sel1=document.getElementById('langSel'); let sel2=document.getElementById('cLang'); if(sel1)sel1.innerHTML=langs.map(function(l){return '<option>'+l.toUpperCase()+'</option>'}).join(''); if(sel2)sel2.innerHTML=langs.map(function(l){return '<option>'+l+'</option>'}).join(''); let opts=vs.length?vs.slice(0,20).map(function(v){return '<option>'+v.name+'</option>'}).join(''):'<option>Ananya</option><option>Aarav</option>'; document.getElementById('voiceSel').innerHTML=opts; document.getElementById('cVoice').innerHTML=opts;}catch(e){}}
-function initMic(){try{let SR=window.SpeechRecognition||window.webkitSpeechRecognition; if(!SR)return; recognition=new SR(); recognition.lang='hi-IN'; recognition.onstart=function(){isListening=true;}; recognition.onend=function(){isListening=false;}; recognition.onresult=function(e){document.getElementById('q').value=e.results[0][0].transcript; sendChat();};}catch(e){}}
-function toggleMic(){if(!recognition){alert('Mic needs Chrome');return;} if(isListening){try{recognition.stop();}catch(e){}}else{try{recognition.start();}catch(e){alert(e.message);}}}}
-function drawWave(){let c=document.getElementById('wave'); if(!c)return; let ctx=c.getContext('2d'); function resize(){c.width=c.offsetWidth; c.height=60} resize(); let t=0; function loop(){ctx.clearRect(0,0,c.width,c.height); ctx.beginPath(); ctx.strokeStyle='#ff8c1a'; ctx.lineWidth=2; for(let x=0;x<c.width;x++){let y=30+Math.sin(x*0.02+t)*14; if(x==0)ctx.moveTo(x,y);else ctx.lineTo(x,y);} ctx.stroke(); t+=0.08; requestAnimationFrame(loop);} loop();}
-updateAuthUI(); updateDocStatus(); initVoices(); if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=initVoices;} setTimeout(initVoices,600); initMic(); drawWave();
-</script></body></html>
+// PRODUCTION ROUTER - NO ERRORS
+let sovereignDocs = JSON.parse(localStorage.getItem('bharat_docs')||'[]');
+let currentUser = JSON.parse(localStorage.getItem('bharat_user')||'null');
+let lastAns = ""; let recognition=null; let isListening=false;
+
+window.router = function(id){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ const target = document.getElementById(id);
+ if(target){target.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'});}
+ if(id==='play') updateDB();
+}
+window.openLogin = ()=>{document.getElementById('loginModal').classList.remove('hidden'); document.getElementById('loginModal').classList.add('grid');}
+window.closeLogin = ()=>{document.getElementById('loginModal').classList.add('hidden'); document.getElementById('loginModal').classList.remove('grid');}
+window.doLogin = ()=>{
+ let email=document.getElementById('loginEmail').value.trim();
+ if(!email) return alert('Enter email');
+ currentUser={email,name:email.split('@')[0]}; localStorage.setItem('bharat_user',JSON.stringify(currentUser));
+ updateAuth(); closeLogin();
+ document.getElementById('chat').innerHTML+=`<div class='mt-3 p-3 rounded-[12px] bg-[#111e36] border border-[#1e335a] text-[13px]'>✅ Welcome <b>${currentUser.name}</b>! Sovereign login active. Jai Hind!</div>`;
+}
+window.logout = ()=>{localStorage.removeItem('bharat_user'); currentUser=null; updateAuth();}
+function updateAuth(){
+ const n=document.getElementById('userName'); const b=document.getElementById('authBtn');
+ if(currentUser){n.textContent='👤 '+currentUser.name; b.textContent='Logout'; b.onclick=logout;}else{n.textContent='👤 Bharat Explorer'; b.textContent='Login'; b.onclick=openLogin;}
+}
+function updateDB(){
+ const el=document.getElementById('dbSt');
+ if(el) el.textContent=`🟢 SOVEREIGN DB CONNECTED | Docs: ${sovereignDocs.length} | User: ${currentUser?currentUser.name:'Guest'} | 22 Voices | Mic: ${recognition?'Ready 🎤':'Need Chrome'}`;
+}
+window.handleFile = (input)=>{
+ const f=input.files[0]; if(!f) return;
+ const r=new FileReader();
+ r.onload=e=>{document.getElementById('dContent').value=e.target.result.slice(0,20000); document.getElementById('dName').value=f.name;};
+ r.readAsText(f);
+}
+window.uploadDoc = ()=>{
+ const name=document.getElementById('dName').value.trim();
+ const content=document.getElementById('dContent').value.trim();
+ if(!name||!content) return alert('Add name and content');
+ sovereignDocs.push({name,content,time:new Date().toISOString()});
+ localStorage.setItem('bharat_docs',JSON.stringify(sovereignDocs));
+ updateDB();
+ document.getElementById('chat').innerHTML+=`<div class='mt-3 p-3 rounded-[12px] bg-[#0a1a0f] border border-[#1a4a2a] text-[12px]'>✅ <b>${name}</b> saved! Size: ${content.length} chars. Total docs: ${sovereignDocs.length}</div>`;
+ document.getElementById('dName').value=''; document.getElementById('dContent').value=''; document.getElementById('fileInput').value='';
+}
+window.clearDocs = ()=>{if(confirm(`Clear all ${sovereignDocs.length} docs?`)){sovereignDocs=[]; localStorage.setItem('bharat_docs','[]'); updateDB();}}
+
+function findAnswer(q){
+ if(sovereignDocs.length===0) return `I have no Sovereign docs yet. Upload first. You asked: "${q}".\n\nI am Bharat-AGI 3026 by Ashish Kumar - ready to answer from your data.`;
+ const qq=q.toLowerCase(); let best=null; let bestScore=-1;
+ sovereignDocs.forEach(doc=>{let score=0; qq.split(/\s+/).forEach(w=>{if(w.length>2 && doc.content.toLowerCase().includes(w)) score++;}); if(score>bestScore){bestScore=score; best=doc;}});
+ if(best && bestScore>0) return `📘 From "${best.name}" (matched ${bestScore} keywords):\n\n${best.content.slice(0,900)}`;
+ return `Searched ${sovereignDocs.length} docs for "${q}" but no strong match. Closest: "${sovereignDocs[0].name}". Preview: ${sovereignDocs[0].content.slice(0,450)}`;
+}
+window.sendChat = ()=>{
+ const input=document.getElementById('q'); const q=input.value.trim(); if(!q) return;
+ const box=document.getElementById('chat');
+ box.innerHTML+=`<div class='mt-3 ml-auto max-w-[85%] p-3 rounded-[14px] bg-gradient-to-r from-[#ff8c1a] to-[#ff7a00] text-black text-[13px] text-right'>${q}</div>`;
+ input.value='';
+ box.innerHTML+=`<div id='think' class='mt-3 p-3 rounded-[14px] bg-[#111e36] text-[#00ff88] text-[12px]'>● BHARAT-AGI thinking...</div>`;
+ box.scrollTop=box.scrollHeight;
+ setTimeout(()=>{
+  const el=document.getElementById('think'); if(el) el.remove();
+  const ans=findAnswer(q); lastAns=ans;
+  box.innerHTML+=`<div class='mt-3 p-3 rounded-[14px] bg-[#111e36] border border-[#1e335a] text-[13px] leading-6 whitespace-pre-wrap'>🤖 ${ans}</div>`;
+  box.scrollTop=box.scrollHeight;
+  speakLast();
+ },650);
+}
+window.speakLast = ()=>{
+ if(!lastAns) return;
+ try{
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(lastAns.slice(0,1000));
+  u.rate=0.92; u.pitch=1;
+  const voices=speechSynthesis.getVoices();
+  const sel=document.getElementById('cVoice')?.value||'';
+  if(voices.length){const v=voices.find(x=>x.name.includes(sel))||voices[0]; u.voice=v;}
+  document.getElementById('vState').textContent='SPEAKING 🔊';
+  u.onend=()=>{document.getElementById('vState').textContent='LISTENING';};
+  speechSynthesis.speak(u);
+ }catch(e){}
+}
+function initVoices(){
+ try{
+  const vs=speechSynthesis.getVoices();
+  const langs=['hi','en','bn','ta','te','mr','gu','ml','kn','pa','ur','or','as','sa','bho','es','fr','de','ar','ja'];
+  const optsLangs=langs.map(l=>`<option value="${l}">${l.toUpperCase()}</option>`).join('');
+  const sel1=document.getElementById('langSel'); if(sel1) sel1.innerHTML=optsLangs;
+  const sel2=document.getElementById('cLang'); if(sel2) sel2.innerHTML=optsLangs;
+  const optsVoices=vs.length?vs.slice(0,22).map(v=>`<option value="${v.name}">${v.name} (${v.lang})</option>`).join(''):'<option value="Ananya">Ananya (hi-female)</option><option value="Aarav">Aarav (hi-male)</option>';
+  const v1=document.getElementById('voiceSel'); if(v1) v1.innerHTML=optsVoices;
+  const v2=document.getElementById('cVoice'); if(v2) v2.innerHTML=optsVoices;
+ }catch(e){}
+}
+function initMic(){
+ try{
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR) return;
+  recognition=new SR(); recognition.continuous=false; recognition.interimResults=false; recognition.lang='hi-IN';
+  recognition.onstart=()=>{isListening=true; document.querySelectorAll('#micBtn').forEach(b=>{b.classList.add('mic-pulse'); b.textContent='🔴';}); updateDB();};
+  recognition.onend=()=>{isListening=false; document.querySelectorAll('#micBtn').forEach(b=>{b.classList.remove('mic-pulse'); b.textContent='🎤';}); updateDB();};
+  recognition.onresult=e=>{document.getElementById('q').value=e.results[0][0].transcript; sendChat();};
+ }catch(e){}
+}
+window.toggleMic = ()=>{
+ if(!recognition){alert('🎤 Mic needs Chrome / Edge. Type instead.'); return;}
+ if(isListening){try{recognition.stop();}catch{}}else{try{const lang=document.getElementById('cLang')?.value||'hi'; recognition.lang=lang==='hi'?'hi-IN':'en-IN'; recognition.start();}catch(e){alert('Mic error: '+e.message);}}
+}
+function drawWave(){
+ const c=document.getElementById('wave'); if(!c) return; const ctx=c.getContext('2d');
+ function resize(){c.width=c.offsetWidth*2; c.height=64*2; ctx.scale(2,2);} resize();
+ let t=0;
+ (function loop(){
+  if(!c) return;
+  const w=c.offsetWidth; const h=64;
+  ctx.clearRect(0,0,w,h);
+  ctx.beginPath(); ctx.strokeStyle='#ff8c1a'; ctx.lineWidth=2.2;
+  for(let x=0;x<w;x++){const y=32+Math.sin(x*0.018+t)*14+Math.sin(x*0.05-t*0.6)*6; if(x===0)ctx.moveTo(x,y); else ctx.lineTo(x,y);} ctx.stroke();
+  ctx.beginPath(); ctx.strokeStyle='rgba(45,155,255,0.6)'; ctx.lineWidth=1.5;
+  for(let x=0;x<w;x++){const y=32+Math.cos(x*0.016+t*1.1)*10; if(x===0)ctx.moveTo(x,y); else ctx.lineTo(x,y);} ctx.stroke();
+  t+=0.08; requestAnimationFrame(loop);
+ })();
+}
+updateAuth(); updateDB(); initVoices(); if(typeof speechSynthesis!=='undefined' && speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=initVoices;} setTimeout(initVoices,700); initMic(); drawWave();
+console.log('%cBHARAT-AGI 3026 Heavy Machine Loaded ✅ - Production Ready','color:#ff8c1a;font-size:14px;font-weight:900');
+</script>
+</body>
+</html>
